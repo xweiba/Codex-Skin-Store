@@ -882,7 +882,7 @@ a {
   font-size: 9px;
 }
 
-.verified-mark {
+.curated-mark {
   display: inline-grid;
   width: 13px;
   height: 13px;
@@ -1206,6 +1206,13 @@ a {
   transform: translate(3px, 3px);
 }
 
+.primary-button:disabled {
+  cursor: not-allowed;
+  opacity: .58;
+  box-shadow: none;
+  transform: none;
+}
+
 .primary-button span {
   color: var(--lime);
 }
@@ -1416,7 +1423,9 @@ footer > div a:hover {
 }
 
 .icon-button {
+  display: inline-grid;
   min-width: 106px;
+  place-items: center;
   padding: 0 13px;
   border: 1px solid var(--ink);
   background: transparent;

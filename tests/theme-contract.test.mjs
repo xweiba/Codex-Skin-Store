@@ -18,3 +18,14 @@ test("theme package schema stays declarative and closed", async () => {
   assert.match(source, /image\/webp/);
   assert.match(source, /Ed25519/);
 });
+
+test("storefront does not expose placeholder install links", async () => {
+  const [storefront, themes] = await Promise.all([
+    readFile(new URL("../components/storefront.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../lib/themes.ts", import.meta.url), "utf8"),
+  ]);
+
+  assert.match(storefront, /一键导入开发中/);
+  assert.doesNotMatch(storefront, /PROTOCOL_PREVIEW_SHA256|dreamskin\.store\/packages/);
+  assert.doesNotMatch(themes, /packageUrl/);
+});

@@ -48,21 +48,22 @@
 
 ## 一键导入契约
 
-商店采用以下 v0 提案生成链接：
+商店采用以下 MVP v1 契约生成链接：
 
 ```text
-dreamskin://install?url=<percent-encoded-https-url>&sha256=<64-lowercase-hex>
+dreamskin://install?url=<percent-encoded-https-url>&sha256=<64-lowercase-hex>&size=<decimal>&id=<theme-id>&version=<semver>
 ```
 
 示例中的摘要仅为占位值，不对应真实主题包：
 
 ```text
-dreamskin://install?url=https%3A%2F%2Fcdn.example.com%2Fthemes%2Fsakura%2F1.0.0.dreamskin&sha256=0000000000000000000000000000000000000000000000000000000000000000
+dreamskin://install?url=https%3A%2F%2Fcdn.example.com%2Fthemes%2Fsakura%2F1.0.0.dreamskin&sha256=0000000000000000000000000000000000000000000000000000000000000000&size=1&id=dreamskin.sakura-night&version=1.0.0
 ```
 
 - `url`：必填，经过百分号编码的公开 HTTPS `.dreamskin` 包地址；
 - `sha256`：必填，下载文件的 64 位小写十六进制 SHA-256；
-- `themeId`、`version`：可选的显示/诊断提示，客户端不得用它们替代包内清单验证。
+- `size`：必填，下载文件的十进制字节数，范围为 1–20971520；
+- `id`、`version`：可选的显示/诊断提示，客户端不得用它们替代包内清单验证。
 
 这仍是跨项目契约草案。现有客户端已经具备 macOS 本地 `themes/<id>/` 主题库与切换能力，但尚未实现 `.dreamskin` 下载器、系统协议注册和上述 URL 处理流程。详见[架构与协议说明](docs/architecture.md)。
 
@@ -94,7 +95,6 @@ npm test
 | `npm run build` | 生成生产构建并检查构建错误 |
 | `npm run start` | 启动生产模式服务器 |
 | `npm test` | 构建并运行渲染结果测试 |
-| `npm run db:generate` | 将来启用 Drizzle 表结构后生成迁移 |
 
 ## 目录结构
 
@@ -121,9 +121,9 @@ docs/architecture.md 架构、安全模型与导入契约
 
 ## 路线图
 
-- **阶段 0：静态 MVP** — 主题目录、筛选、详情、包元数据和协议链接；
-- **阶段 1：客户端导入** — `.dreamskin` 规范、URL 协议/文件关联、校验、原子安装及 macOS/Windows 对齐；
-- **阶段 2：可信发布** — 清单签名、发布者身份、兼容矩阵、撤回清单和自动更新；
+- **阶段 0：静态 MVP** — 主题目录、筛选、详情和协议预览；
+- **阶段 1：客户端导入** — 已签名 `.dreamskin` 规范、URL 协议/文件关联、校验、原子安装及 macOS/Windows 对齐；
+- **阶段 2：可信发布** — 发布者身份、密钥轮换、兼容矩阵、撤回清单和自动更新；
 - **阶段 3：创作者平台** — 账号、上传、自动检查、人工审核、版本管理和对象存储；
 - **阶段 4：社区能力** — 收藏、评分、举报、精选专题和创作者工具。
 

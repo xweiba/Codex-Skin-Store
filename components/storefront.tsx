@@ -20,8 +20,8 @@ import {
   type ThemeSort,
 } from "@/lib/themes";
 
-const STORE_ORIGIN = "https://dreamskin.store";
-const PROTOCOL_PREVIEW_SHA256 = "0".repeat(64);
+const PROTOCOL_SPEC_URL =
+  "https://github.com/lixiaobaivv/Codex-Dream-Skin-Store/blob/main/spec/import-protocol.md";
 
 type PreviewVariables = CSSProperties & {
   "--theme-background": string;
@@ -51,19 +51,6 @@ function previewVariables(theme: Theme): PreviewVariables {
     "--theme-code": style.codeColor,
     "--theme-shadow": style.shadow,
   };
-}
-
-function importUrl(theme: Theme): string {
-  const packageUrl = new URL(theme.packageUrl, STORE_ORIGIN).href;
-  const parameters = new URLSearchParams({
-    url: packageUrl,
-    sha256: PROTOCOL_PREVIEW_SHA256,
-    size: "1",
-    id: theme.slug,
-    version: theme.version,
-  });
-
-  return `dreamskin://install?${parameters.toString()}`;
 }
 
 function ThemePreview({
@@ -112,10 +99,10 @@ function ThemePreview({
   );
 }
 
-function VerifiedMark() {
+function CuratedMark() {
   return (
-    <span className="verified-mark" title="已验证创作者" aria-label="已验证创作者">
-      ✓
+    <span className="curated-mark" title="编辑推荐创作者" aria-label="编辑推荐创作者">
+      ✦
     </span>
   );
 }
@@ -146,7 +133,7 @@ function ThemeCard({
           <div>
             <h3>{theme.name}</h3>
             <p>
-              @{theme.author.handle} {theme.author.verified && <VerifiedMark />}
+              @{theme.author.handle} {theme.author.curated && <CuratedMark />}
             </p>
           </div>
           <button
@@ -171,19 +158,6 @@ function ThemeCard({
 }
 
 function ThemeDetail({ theme, onClose }: { theme: Theme; onClose: () => void }) {
-  const deepLink = importUrl(theme);
-  const [copied, setCopied] = useState(false);
-
-  async function copyLink() {
-    try {
-      await navigator.clipboard.writeText(deepLink);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 1800);
-    } catch {
-      setCopied(false);
-    }
-  }
-
   return (
     <div className="theme-dialog-backdrop" role="presentation" onMouseDown={onClose}>
       <section
@@ -206,7 +180,7 @@ function ThemeDetail({ theme, onClose }: { theme: Theme; onClose: () => void }) 
           </div>
           <h2 id="theme-dialog-title">{theme.name}</h2>
           <p className="dialog-author">
-            by {theme.author.name} · @{theme.author.handle} {theme.author.verified && <VerifiedMark />}
+            by {theme.author.name} · @{theme.author.handle} {theme.author.curated && <CuratedMark />}
           </p>
           <p className="dialog-summary">{theme.summary}</p>
           <div className="dialog-stats">
@@ -239,14 +213,14 @@ function ThemeDetail({ theme, onClose }: { theme: Theme; onClose: () => void }) 
             <p>声明式主题 · {theme.license.name} · 引擎 {theme.engineRange}</p>
           </div>
           <div className="dialog-actions">
-            <a className="primary-button primary-button--wide" href={deepLink}>
-              一键导入 Dream Skin <span>↗</span>
-            </a>
-            <button className="icon-button" type="button" onClick={copyLink}>
-              {copied ? "已复制" : "复制导入链接"}
+            <button className="primary-button primary-button--wide" type="button" disabled>
+              一键导入开发中 <span>↗</span>
             </button>
+            <a className="icon-button" href={PROTOCOL_SPEC_URL} target="_blank" rel="noreferrer">
+              查看协议规范
+            </a>
           </div>
-          <p className="dialog-helper">需要安装支持导入协议的 Dream Skin 客户端。当前为协议预览版。</p>
+          <p className="dialog-helper">示例主题尚未发布真实包；客户端导入器与系统协议接入完成后开放。</p>
         </div>
       </section>
     </div>
@@ -336,7 +310,7 @@ export function Storefront() {
           <p className="section-label"><span>01</span> THEME MARKETPLACE</p>
           <h1>给 Codex<br />换一种<span>心情。</span></h1>
           <p className="hero-lede">
-            精选社区创作的安全主题。先预览，再用一次点击把喜欢的工作台带回本地。
+            精选社区创作的安全主题。先预览，再由本地客户端完成校验、安装与应用确认。
           </p>
           <label className="hero-search">
             <span aria-hidden="true">⌕</span>
@@ -462,7 +436,7 @@ export function Storefront() {
       <section className="how-it-works" id="how-it-works">
         <div className="how-heading">
           <p className="section-label section-label--light"><span>03</span> ONE-CLICK IMPORT</p>
-          <h2>从心动到生效，<br />只差一次点击。</h2>
+          <h2>从心动到生效，<br />始终由你确认。</h2>
         </div>
         <ol className="steps">
           <li>
@@ -475,13 +449,13 @@ export function Storefront() {
           </li>
           <li>
             <span>03</span>
-            <div><strong>立即应用</strong><p>通过 dreamskin:// 唤起本地引擎，原子安装后热切换。</p></div>
+            <div><strong>确认安装与应用</strong><p>客户端确认来源并原子安装，成功后再次询问是否热切换。</p></div>
           </li>
         </ol>
         <div className="protocol-chip">
           <span>PROTOCOL</span>
-          <code>dreamskin://install?manifest=…</code>
-          <i>复制与校验由客户端完成</i>
+          <code>dreamskin://install?url=…&amp;sha256=…&amp;size=…</code>
+          <i>真实包、哈希与大小就绪后开放</i>
         </div>
       </section>
 

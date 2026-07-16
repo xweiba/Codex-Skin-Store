@@ -30,7 +30,7 @@ export type ThemeSort = "featured" | "popular" | "newest" | "rating";
 export interface ThemeAuthor {
   readonly name: string;
   readonly handle: string;
-  readonly verified: boolean;
+  readonly curated: boolean;
 }
 
 export interface ThemeStats {
@@ -73,7 +73,6 @@ export interface Theme {
   readonly isNew: boolean;
   readonly version: string;
   readonly engineRange: string;
-  readonly packageUrl: string;
   readonly publishedAt: string;
   readonly license: ThemeLicense;
   readonly previewStyle: ThemePreviewStyle;
@@ -142,7 +141,7 @@ export const THEMES = [
     slug: "aurora-drift",
     name: "极光漫游",
     summary: "蓝紫极光缓缓掠过深夜，为长时间创作保留恰到好处的层次。",
-    author: { name: "Northlight Studio", handle: "northlight", verified: true },
+    author: { name: "Northlight Studio", handle: "northlight", curated: true },
     category: "gradient",
     platforms: ["macos", "windows"],
     colors: ["violet", "blue", "black"],
@@ -152,7 +151,6 @@ export const THEMES = [
     isNew: false,
     version: "1.3.0",
     engineRange: ">=1.1.0 <2.0.0",
-    packageUrl: "/packages/aurora-drift-1.3.0.dreamskin",
     publishedAt: "2026-04-18T08:00:00.000Z",
     license: SAMPLE_LICENSE,
     previewStyle: {
@@ -173,7 +171,7 @@ export const THEMES = [
     slug: "midnight-grid",
     name: "午夜网格",
     summary: "精密网格与克制的电光蓝，适合偏爱结构感的深色工作台。",
-    author: { name: "Plain Systems", handle: "plainsystems", verified: true },
+    author: { name: "Plain Systems", handle: "plainsystems", curated: true },
     category: "dark",
     platforms: ["macos", "windows"],
     colors: ["black", "blue"],
@@ -183,7 +181,6 @@ export const THEMES = [
     isNew: false,
     version: "1.1.2",
     engineRange: ">=1.0.0 <2.0.0",
-    packageUrl: "/packages/midnight-grid-1.1.2.dreamskin",
     publishedAt: "2026-03-02T08:00:00.000Z",
     license: SAMPLE_LICENSE,
     previewStyle: {
@@ -204,7 +201,7 @@ export const THEMES = [
     slug: "linen-light",
     name: "亚麻晨光",
     summary: "温柔米白与细腻纸纤维质感，让界面像一本摊开的轻盈笔记。",
-    author: { name: "Quiet Form", handle: "quietform", verified: true },
+    author: { name: "Quiet Form", handle: "quietform", curated: true },
     category: "minimal",
     platforms: ["macos"],
     colors: ["neutral", "orange"],
@@ -214,7 +211,6 @@ export const THEMES = [
     isNew: false,
     version: "1.0.6",
     engineRange: ">=1.1.0 <2.0.0",
-    packageUrl: "/packages/linen-light-1.0.6.dreamskin",
     publishedAt: "2026-02-11T08:00:00.000Z",
     license: SAMPLE_LICENSE,
     previewStyle: {
@@ -235,7 +231,7 @@ export const THEMES = [
     slug: "ocean-glass",
     name: "海面玻璃",
     summary: "清透海岸色调叠加磨砂玻璃面板，明亮但不刺眼。",
-    author: { name: "Tidal Workshop", handle: "tidalworkshop", verified: false },
+    author: { name: "Tidal Workshop", handle: "tidalworkshop", curated: false },
     category: "nature",
     platforms: ["macos", "windows"],
     colors: ["teal", "blue", "neutral"],
@@ -245,7 +241,6 @@ export const THEMES = [
     isNew: false,
     version: "1.2.1",
     engineRange: ">=1.1.0 <2.0.0",
-    packageUrl: "/packages/ocean-glass-1.2.1.dreamskin",
     publishedAt: "2026-05-06T08:00:00.000Z",
     license: SAMPLE_LICENSE,
     previewStyle: {
@@ -266,7 +261,7 @@ export const THEMES = [
     slug: "moss-and-mist",
     name: "苔色山雾",
     summary: "层叠苔绿与清晨薄雾，营造沉静、有呼吸感的专注空间。",
-    author: { name: "Field Notes Lab", handle: "fieldnotes", verified: true },
+    author: { name: "Field Notes Lab", handle: "fieldnotes", curated: true },
     category: "nature",
     platforms: ["macos", "windows"],
     colors: ["green", "neutral", "black"],
@@ -276,7 +271,6 @@ export const THEMES = [
     isNew: true,
     version: "1.0.1",
     engineRange: ">=1.2.0 <2.0.0",
-    packageUrl: "/packages/moss-and-mist-1.0.1.dreamskin",
     publishedAt: "2026-07-03T08:00:00.000Z",
     license: SAMPLE_LICENSE,
     previewStyle: {
@@ -297,7 +291,7 @@ export const THEMES = [
     slug: "solar-bloom",
     name: "日光绽放",
     summary: "珊瑚橙与玫瑰粉相遇，给工作区注入温暖又现代的能量。",
-    author: { name: "Chromatic Dept.", handle: "chromaticdept", verified: false },
+    author: { name: "Chromatic Dept.", handle: "chromaticdept", curated: false },
     category: "gradient",
     platforms: ["windows"],
     colors: ["orange", "rose", "violet"],
@@ -307,7 +301,6 @@ export const THEMES = [
     isNew: true,
     version: "1.0.0",
     engineRange: ">=1.2.0 <2.0.0",
-    packageUrl: "/packages/solar-bloom-1.0.0.dreamskin",
     publishedAt: "2026-06-27T08:00:00.000Z",
     license: SAMPLE_LICENSE,
     previewStyle: {
@@ -328,7 +321,7 @@ export const THEMES = [
     slug: "paper-observatory",
     name: "纸上天文台",
     summary: "深蓝墨色与细小星图铺在暖灰纸面上，像一本安静的观测手册。",
-    author: { name: "Margin Press", handle: "marginpress", verified: true },
+    author: { name: "Margin Press", handle: "marginpress", curated: true },
     category: "editorial",
     platforms: ["macos"],
     colors: ["neutral", "blue", "black"],
@@ -338,7 +331,6 @@ export const THEMES = [
     isNew: true,
     version: "1.0.2",
     engineRange: ">=1.2.0 <2.0.0",
-    packageUrl: "/packages/paper-observatory-1.0.2.dreamskin",
     publishedAt: "2026-07-08T08:00:00.000Z",
     license: SAMPLE_LICENSE,
     previewStyle: {
@@ -359,7 +351,7 @@ export const THEMES = [
     slug: "ember-terminal",
     name: "余烬终端",
     summary: "炭黑背景中留下一点琥珀余温，为终端爱好者打造的低干扰主题。",
-    author: { name: "Afterdark Tools", handle: "afterdark", verified: false },
+    author: { name: "Afterdark Tools", handle: "afterdark", curated: false },
     category: "dark",
     platforms: ["macos", "windows"],
     colors: ["black", "orange"],
@@ -369,7 +361,6 @@ export const THEMES = [
     isNew: true,
     version: "1.0.0",
     engineRange: ">=1.2.0 <2.0.0",
-    packageUrl: "/packages/ember-terminal-1.0.0.dreamskin",
     publishedAt: "2026-07-12T08:00:00.000Z",
     license: SAMPLE_LICENSE,
     previewStyle: {
