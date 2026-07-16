@@ -78,6 +78,14 @@ npm ci
 npm run dev
 ```
 
+## GitHub Pages
+
+`main` 分支会通过 `.github/workflows/pages.yml` 构建纯静态站点并发布到：
+
+`https://lixiaobaivv.github.io/Codex-Skin-Store/`
+
+页面和签名主题包都由 GitHub 托管，不需要应用服务器、数据库或对象存储。
+
 浏览器地址以终端输出为准，默认通常为 `http://localhost:3000`。
 
 提交前建议运行：

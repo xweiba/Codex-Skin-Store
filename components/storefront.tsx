@@ -2,6 +2,7 @@
 
 import type { CSSProperties } from "react";
 import { useEffect, useMemo, useState } from "react";
+import { createDreamSkinInstallLink } from "@/lib/dreamskin-link";
 import {
   COLOR_OPTIONS,
   PLATFORM_OPTIONS,
@@ -158,6 +159,7 @@ function ThemeCard({
 }
 
 function ThemeDetail({ theme, onClose }: { theme: Theme; onClose: () => void }) {
+  const installLink = theme.package?.published ? createDreamSkinInstallLink(theme.package) : undefined;
   return (
     <div className="theme-dialog-backdrop" role="presentation" onMouseDown={onClose}>
       <section
@@ -213,14 +215,31 @@ function ThemeDetail({ theme, onClose }: { theme: Theme; onClose: () => void }) 
             <p>声明式主题 · {theme.license.name} · 引擎 {theme.engineRange}</p>
           </div>
           <div className="dialog-actions">
-            <button className="primary-button primary-button--wide" type="button" disabled>
-              一键导入开发中 <span>↗</span>
-            </button>
+            {installLink ? (
+              <a className="primary-button primary-button--wide" href={installLink}>
+                一键导入 <span>↗</span>
+              </a>
+            ) : (
+              <button className="primary-button primary-button--wide" type="button" disabled>
+                暂无可验证包
+              </button>
+            )}
+            {theme.package?.published && (
+              <a className="icon-button" href={theme.package.url}>
+                手动下载
+              </a>
+            )}
             <a className="icon-button" href={PROTOCOL_SPEC_URL} target="_blank" rel="noreferrer">
               查看协议规范
             </a>
           </div>
-          <p className="dialog-helper">示例主题尚未发布真实包；客户端导入器与系统协议接入完成后开放。</p>
+          <p className="dialog-helper">
+            {theme.package?.published
+              ? `客户端将校验 ${theme.package.size.toLocaleString("zh-CN")} 字节、SHA-256 与 Ed25519 签名；安装后仍需单独确认应用。`
+              : theme.package
+                ? "签名样例已经准备完成，GitHub Release 发布后即可开放一键导入。"
+                : "该预览还没有经过签名和发布，因此不提供导入链接。"}
+          </p>
         </div>
       </section>
     </div>
@@ -455,7 +474,7 @@ export function Storefront() {
         <div className="protocol-chip">
           <span>PROTOCOL</span>
           <code>dreamskin://install?url=…&amp;sha256=…&amp;size=…</code>
-          <i>真实包、哈希与大小就绪后开放</i>
+          <i>首个双平台签名示例已开放</i>
         </div>
       </section>
 

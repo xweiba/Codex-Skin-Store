@@ -1432,6 +1432,7 @@ footer > div a:hover {
   cursor: pointer;
   font-size: 9px;
   font-weight: 700;
+  text-decoration: none;
 }
 
 .icon-button:hover {
