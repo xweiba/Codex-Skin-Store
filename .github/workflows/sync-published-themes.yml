@@ -53,10 +53,13 @@ jobs:
       - run: npm ci
         if: steps.sync.outputs.found == 'true'
 
-      - uses: actions/setup-dotnet@v6
+      - uses: dtolnay/rust-toolchain@stable
+        if: steps.sync.outputs.found == 'true'
+
+      - uses: swatinem/rust-cache@v2
         if: steps.sync.outputs.found == 'true'
         with:
-          dotnet-version: 8.0.x
+          workspaces: .publisher-client/src-tauri
 
       - name: Check out the trusted package verifier
         if: steps.sync.outputs.found == 'true'
@@ -73,9 +76,8 @@ jobs:
           shopt -s nullglob
           packages=("$RUNNER_TEMP"/published-themes/*.dreamskin)
           for package in "${packages[@]}"; do
-            name="$(basename "$package" .dreamskin)"
-            dotnet run --project .publisher-client/src/CodexThemeStore.Cli --configuration Release -- theme-import "$package" macos "$RUNNER_TEMP/verified-macos-$name"
-            dotnet run --project .publisher-client/src/CodexThemeStore.Cli --configuration Release -- theme-import "$package" windows "$RUNNER_TEMP/verified-windows-$name"
+            cargo run --manifest-path .publisher-client/src-tauri/Cargo.toml --locked --bin dreamskin-verify -- "$package" macos
+            cargo run --manifest-path .publisher-client/src-tauri/Cargo.toml --locked --bin dreamskin-verify -- "$package" windows
           done
 
       - name: Generate and validate the published storefront

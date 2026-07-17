@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 2,
+  "name": "Codex-Skin-Store Desktop Catalog",
+  "revision": "2026-07-17T08:11:01Z",
+  "themes": [
+    {
+      "id": "dilraba-star",
+      "version": "1.0.0",
+      "name": "Dilraba Star",
+      "description": "星光蓝紫与甜酷舞台氛围",
+      "category": "人物",
+      "variant": "light",
+      "manifest": {
+        "path": "themes/dilraba-star.json",
+        "sha256": "d9b920692b8e526c9505ee6a48661b77b1ecdb4010a90ecde2b8c73d0f52a70a",
+        "size": 3069
+      },
+      "preview": {
+        "path": "previews/dilraba-star.png",
+        "sha256": "fe786c380f8d22eb5679ecd5dba8716d2654a600c3e7ad36902a5623c41dfcaa",
+        "size": 684224
+      },
+      "assets": [
+        {
+          "path": "previews/dilraba-star.png",
+          "sha256": "fe786c380f8d22eb5679ecd5dba8716d2654a600c3e7ad36902a5623c41dfcaa",
+          "size": 684224
+        },
+        {
+          "path": "backgrounds/dilraba-star-hero-v3.jpg",
+          "sha256": "4d77bfc8a2f89af78bccc56c15adc95662c0b56dffd2683e96587a61a7a19b93",
+          "size": 329405
+        },
+        {
+          "path": "logos/dilraba-star-logo-ui-v1.png",
+          "sha256": "6afae7a83e8abc9a69078842cf0a085b0eaec95d0573d1b21aac903cb5262ef2",
+          "size": 139617
+        }
+      ]
+    },
+    {
+      "id": "enfp-pop",
+      "version": "1.0.0",
+      "name": "ENFP Pop",
+      "description": "高饱和青橙与自由脑暴氛围",
+      "category": "其他",
+      "variant": "light",
+      "manifest": {
+        "path": "themes/enfp-pop.json",
+        "sha256": "c1901db95ad4192712ba876c1358eb63e151937d4a30c54a1a7fbdd8bd5de73b",
+        "size": 3146
+      },
+      "preview": {
+        "path": "previews/enfp-pop.png",
+        "sha256": "c3f3bfaa1a8edfe97acfc9d49d024fe0f11109e5d0bb5c0bc66823303c04e51d",
+        "size": 590788
+      },
+      "assets": [
+        {
+          "path": "previews/enfp-pop.png",
+          "sha256": "c3f3bfaa1a8edfe97acfc9d49d024fe0f11109e5d0bb5c0bc66823303c04e51d",
+          "size": 590788
+        },
+        {
+          "path": "backgrounds/enfp-pop-hero-v2.jpg",
+          "sha256": "b1563a84b968b60f3b2e36b9a9437a41d1e62d01b444453e0df9b5179d1c93d3",
+          "size": 363775
+        },
+        {
+          "path": "logos/enfp-pop-logo-ui-v1.png",
+          "sha256": "e63a62c8c5a26f8c9c83776c5f4085e3b4ef06a6bce98c988a36a39ad93ef2d3",
+          "size": 115220
+        }
+      ]
+    },
+    {
+      "id": "jackson-sage",
+      "version": "1.0.0",
+      "name": "Jackson Sage",
+      "description": "鼠尾草绿与安静留白氛围",
+      "category": "人物",
+      "variant": "light",
+      "manifest": {
+        "path": "themes/jackson-sage.json",
+        "sha256": "c5f79d9d191a8de3b8fdd790dd5b83c9aec79398383dfcb718944d95cce08d25",
+        "size": 3048
+      },
+      "preview": {
+        "path": "previews/jackson-sage.png",
+        "sha256": "d45ad6e2095e9c5754cfe77c57154d7e171f8fbe8e3514bea39846301097a571",
+        "size": 912083
+      },
+      "assets": [
+        {
+          "path": "previews/jackson-sage.png",
+          "sha256": "d45ad6e2095e9c5754cfe77c57154d7e171f8fbe8e3514bea39846301097a571",
+          "size": 912083
+        },
+        {
+          "path": "backgrounds/jackson-sage-hero-v2.jpg",
+          "sha256": "f4cef5337b399df302dc04966bc7e9a6e1e2f63e4a94eabed8f8af4387558833",
+          "size": 319082
+        },
+        {
+          "path": "logos/jackson-sage-logo-ui-v1.png",
+          "sha256": "cdf9133fa4f100e3fe287df2b1eec5b3ee88c235755e60b1219ed8dd2a696695",
+          "size": 86739
+        }
+      ]
+    },
+    {
+      "id": "kun-stage",
+      "version": "1.0.0",
+      "name": "KUN Stage",
+      "description": "黑金舞台与聚光灯氛围",
+      "category": "人物",
+      "variant": "dark",
+      "manifest": {
+        "path": "themes/kun-stage.json",
+        "sha256": "6450512eeaf64992d46e5542ef99bb452c379d81fdeb1998d6643fd92afffeff",
+        "size": 2985
+      },
+      "preview": {
+        "path": "previews/kun-stage.png",
+        "sha256": "3aef61771005e3459c9772307684088dfc79aab3627843cf8c9aece1af296d43",
+        "size": 837851
+      },
+      "assets": [
+        {
+          "path": "previews/kun-stage.png",
+          "sha256": "3aef61771005e3459c9772307684088dfc79aab3627843cf8c9aece1af296d43",
+          "size": 837851
+        },
+        {
+          "path": "backgrounds/kun-stage-hero-v2.jpg",
+          "sha256": "b8da9f187dcee86465be85f2d764d6363aefe628ebe01dcf64e3d0dfed7ab199",
+          "size": 275729
+        },
+        {
+          "path": "logos/kun-stage-logo-ui-v1.png",
+          "sha256": "7b790f78b8ed07a998b6de9ab6205c034a33384a075138bcd322a7855c4fa904",
+          "size": 71152
+        }
+      ]
+    },
+    {
+      "id": "zhu-xudan-racing",
+      "version": "1.0.0",
+      "name": "Zhu Xudan Racing",
+      "description": "赛车红黑与卡丁车疾速氛围",
+      "category": "人物",
+      "variant": "dark",
+      "manifest": {
+        "path": "themes/zhu-xudan-racing.json",
+        "sha256": "a8f4c413157bcaaee72db9e78bf753ec6b794a779a2ff1f03fa104365c40f604",
+        "size": 2977
+      },
+      "preview": {
+        "path": "previews/zhu-xudan-racing.png",
+        "sha256": "688aed6c0af9620f120fc7cf95e6fa82ba114b7f5b22277db477d9d663ea265d",
+        "size": 1259280
+      },
+      "assets": [
+        {
+          "path": "previews/zhu-xudan-racing.png",
+          "sha256": "688aed6c0af9620f120fc7cf95e6fa82ba114b7f5b22277db477d9d663ea265d",
+          "size": 1259280
+        },
+        {
+          "path": "backgrounds/zhu-xudan-racing-hero-v1.png",
+          "sha256": "f7c5f16e34e55c5b75129c146f8afbd34005a7e954155629a627e33cdd2279bf",
+          "size": 1821789
+        },
+        {
+          "path": "logos/zhu-xudan-racing-logo-v1.png",
+          "sha256": "c97fd79e23671bc3189a47f1f7787d959b9155bd5383a208d1a6f918ae66bfee",
+          "size": 402995
+        }
+      ]
+    }
+  ]
+}
