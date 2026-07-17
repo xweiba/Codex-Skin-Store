@@ -20,10 +20,10 @@ test("theme package schema stays declarative and closed", async () => {
   assert.match(source, /Ed25519/);
 });
 
-test("storefront catalogs and enables the published signed sample", async () => {
+test("storefront catalogs and enables the official themes", async () => {
   const [storefront, catalogEntry, generated, links] = await Promise.all([
     readFile(new URL("../components/storefront.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../catalog/themes/jackson-sage-signed-sample.json", import.meta.url), "utf8"),
+    readFile(new URL("../catalog/themes/jackson-sage.json", import.meta.url), "utf8"),
     readFile(new URL("../lib/generated-themes.ts", import.meta.url), "utf8"),
     readFile(new URL("../lib/dreamskin-link.ts", import.meta.url), "utf8"),
   ]);
@@ -31,11 +31,12 @@ test("storefront catalogs and enables the published signed sample", async () => 
   assert.match(storefront, /一键导入/);
   assert.match(storefront, /手动下载/);
   assert.doesNotMatch(storefront, /PROTOCOL_PREVIEW_SHA256|dreamskin\.store\/packages/);
-  assert.match(catalogEntry, /releases\/download\/sample-v1\/codex-skin-sample-1\.0\.0\.dreamskin/);
-  assert.match(catalogEntry, /7a75fff8086fe6949ef9e37e82c161a8e015a1e00e02181938cd479e9ae41387/);
-  assert.match(catalogEntry, /"size": 2041227/);
+  assert.match(catalogEntry, /releases\/download\/official-themes-v1\/Codex-Skin-theme-jackson-sage-1\.0\.0\.dreamskin/);
+  assert.match(catalogEntry, /d737eb406bcb8612c6ff4814a2e9644287617dcc23d78fa99b2f698cb02c4abd/);
+  assert.match(catalogEntry, /"size": 1233340/);
   assert.match(catalogEntry, /"published": true/);
-  assert.match(generated, /jackson-sage-signed-sample/);
+  assert.match(generated, /"slug": "jackson-sage"/);
+  assert.match(generated, /theme-previews\/jackson-sage\.png/);
   assert.match(storefront, /theme\.package\?\.published/);
   assert.match(links, /URLSearchParams/);
   assert.match(links, /dreamskin:\/\/install/);
@@ -54,7 +55,7 @@ test("store catalog schema is closed and requires complete package metadata", as
 });
 
 test("catalog validation rejects placeholders, unknown fields, and duplicates", async () => {
-  const sample = JSON.parse(await readFile(new URL("../catalog/themes/jackson-sage-signed-sample.json", import.meta.url), "utf8"));
+  const sample = JSON.parse(await readFile(new URL("../catalog/themes/jackson-sage.json", import.meta.url), "utf8"));
 
   assert.throws(
     () => validateTheme({ ...sample, unexpected: true }, "bad-theme"),
@@ -70,16 +71,21 @@ test("catalog validation rejects placeholders, unknown fields, and duplicates", 
   );
 });
 
-test("all nine storefront themes have complete unique packages", async () => {
+test("storefront exactly matches the four desktop themes", async () => {
   const directory = new URL("../catalog/themes/", import.meta.url);
   const files = (await readdir(directory)).filter((name) => name.endsWith(".json")).sort();
   const themes = await Promise.all(files.map((name) => readFile(new URL(name, directory), "utf8").then(JSON.parse)));
-  assert.equal(themes.length, 9);
-  assert.equal(themes.filter((theme) => theme.package?.published).length, 9);
-  assert.equal(new Set(themes.map((theme) => `${theme.package.id}@${theme.package.version}`)).size, 9);
+  const desktopIndex = JSON.parse(await readFile(new URL("../theme-repository.json", import.meta.url), "utf8"));
+  const desktopIds = desktopIndex.themes.map(entry => entry.id).sort();
+  assert.equal(themes.length, 4);
+  assert.deepEqual(themes.map(theme => theme.slug).sort(), desktopIds);
+  assert.equal(themes.filter((theme) => theme.package?.published).length, 4);
+  assert.equal(new Set(themes.map((theme) => `${theme.package.id}@${theme.package.version}`)).size, 4);
   assert.doesNotThrow(() => validateCatalog(themes));
   for (const theme of themes) {
-    assert.match(theme.package.url, /^https:\/\/github\.com\/lixiaobaivv\/Codex-Skin\/releases\/download\//);
+    assert.equal(theme.package.id, theme.slug);
+    assert.match(theme.package.url, /^https:\/\/github\.com\/lixiaobaivv\/Codex-Skin\/releases\/download\/official-themes-v1\/Codex-Skin-theme-/);
+    await readFile(new URL(`../public${theme.previewImage}`, import.meta.url));
   }
 
   const draft = { ...themes[0], slug: "future-draft", package: null };

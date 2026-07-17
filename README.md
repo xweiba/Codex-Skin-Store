@@ -4,6 +4,8 @@
 
 Codex-Skin-Store 是 Codex-Skin 的公开主题商店。你可以在网页中浏览、筛选和下载主题，也可以通过 `dreamskin://` 一键交给本机 Codex-Skin 客户端验证和安装。
 
+网页当前展示 Dilraba Star、ENFP Pop、Jackson Sage 和 KUN Stage 四个正式主题，预览图直接来自客户端真实主题效果，不再展示互操作测试样例。
+
 - 在线商店：<https://lixiaobaivv.github.io/Codex-Skin-Store/>
 - 客户端下载：<https://github.com/lixiaobaivv/Codex-Skin/releases/latest>
 - 客户端使用说明：<https://github.com/lixiaobaivv/Codex-Skin#readme>

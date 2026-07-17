@@ -4,6 +4,8 @@
 
 Codex-Skin-Store is the public theme catalog for Codex-Skin. Browse themes on the web, download them manually, or send a signed theme to the Windows or macOS client with one click.
 
+The storefront currently publishes Dilraba Star, ENFP Pop, Jackson Sage, and KUN Stage. Every card uses the real client theme preview rather than an interoperability mockup.
+
 - Storefront: <https://lixiaobaivv.github.io/Codex-Skin-Store/>
 - Client downloads: <https://github.com/lixiaobaivv/Codex-Skin/releases/latest>
 - Client guide: <https://github.com/lixiaobaivv/Codex-Skin/blob/main/README.en.md>

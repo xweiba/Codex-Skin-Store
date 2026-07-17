@@ -2,6 +2,7 @@
 
 import type { CSSProperties } from "react";
 import { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import { createDreamSkinInstallLink } from "@/lib/dreamskin-link";
 import {
   COLOR_OPTIONS,
@@ -68,34 +69,7 @@ function ThemePreview({
       aria-label={`${theme.name} 主题界面预览`}
       role="img"
     >
-      <div className="preview-glow" />
-      <div className="preview-window">
-        <div className="preview-traffic" aria-hidden="true">
-          <i />
-          <i />
-          <i />
-        </div>
-        <aside className="preview-sidebar">
-          <span className="preview-logo">D</span>
-          <span className="preview-nav preview-nav--active" />
-          <span className="preview-nav" />
-          <span className="preview-nav preview-nav--short" />
-          <span className="preview-avatar" />
-        </aside>
-        <div className="preview-main">
-          <span className="preview-kicker">CODEX DREAM SKIN</span>
-          <strong>Make something wonderful.</strong>
-          <div className="preview-lines">
-            <span />
-            <span />
-            <span />
-          </div>
-          <div className="preview-composer">
-            <span>Ask Codex</span>
-            <i>↗</i>
-          </div>
-        </div>
-      </div>
+      <Image className="theme-preview-image" src={theme.previewImage} alt="" width={1586} height={992} unoptimized />
     </div>
   );
 }
@@ -237,7 +211,7 @@ function ThemeDetail({ theme, onClose }: { theme: Theme; onClose: () => void }) 
             {theme.package?.published
               ? `客户端将校验 ${theme.package.size.toLocaleString("zh-CN")} 字节、SHA-256 与 Ed25519 签名；安装后仍需单独确认应用。`
               : theme.package
-                ? "签名样例已经准备完成，GitHub Release 发布后即可开放一键导入。"
+                ? "正式主题包已经准备完成，GitHub Release 发布后即可开放一键导入。"
                 : "该预览还没有经过签名和发布，因此不提供导入链接。"}
           </p>
         </div>

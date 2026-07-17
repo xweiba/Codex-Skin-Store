@@ -36,8 +36,11 @@ test("server-renders the Codex-Skin-Store storefront", async () => {
   assert.match(html, /发现主题/);
   assert.match(html, /一键导入/);
   assert.doesNotMatch(html, /暂无可验证包/);
-  assert.match(html, /极光漫游/);
-  assert.match(html, /余烬终端/);
+  for (const theme of ["Dilraba Star", "Jackson Sage", "KUN Stage", "ENFP Pop"]) {
+    assert.match(html, new RegExp(theme));
+  }
+  assert.match(html, /theme-previews\/dilraba-star\.png/);
+  assert.doesNotMatch(html, /极光漫游|余烬终端|千玺星球签名示例/);
   assert.match(html, /非 OpenAI 官方产品/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
 });

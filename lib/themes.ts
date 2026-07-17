@@ -42,9 +42,9 @@ export interface ThemeStats {
 }
 
 export interface ThemeLicense {
-  readonly name: string;
-  readonly spdx: "CC0-1.0";
-  readonly source: "original-procedural-artwork";
+  readonly name: "Codex-Skin Theme Assets";
+  readonly spdx: "LicenseRef-Codex-Skin-Theme";
+  readonly source: "project-curated-assets";
 }
 
 export interface ThemePreviewStyle {
@@ -86,6 +86,7 @@ export interface Theme {
   readonly engineRange: string;
   readonly publishedAt: string;
   readonly license: ThemeLicense;
+  readonly previewImage: string;
   readonly previewStyle: ThemePreviewStyle;
   readonly package: ThemePackage | null;
 }

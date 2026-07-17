@@ -1,0 +1,20 @@
+{
+  "slug": "kun-stage",
+  "name": "KUN Stage",
+  "summary": "黑金舞台与聚光灯氛围，使用真实主题背景、Logo 和完整首页引导内容。",
+  "author": { "name": "Codex Skin", "handle": "codex-skin", "curated": true },
+  "category": "dark",
+  "platforms": ["macos", "windows"],
+  "colors": ["black", "orange"],
+  "tags": ["真实主题", "人物", "黑金", "舞台", "双平台"],
+  "stats": { "downloads": 0, "rating": 0, "reviews": 0 },
+  "featured": false,
+  "isNew": true,
+  "version": "1.0.0",
+  "engineRange": ">=1.0.0 <2.0.0",
+  "publishedAt": "2026-07-17T06:00:00.000Z",
+  "license": { "name": "Codex-Skin Theme Assets", "spdx": "LicenseRef-Codex-Skin-Theme", "source": "project-curated-assets" },
+  "package": { "published": true, "id": "kun-stage", "version": "1.0.0", "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/official-themes-v1/Codex-Skin-theme-kun-stage-1.0.0.dreamskin", "sha256": "5b6be40451f7b9d69daca1c36d85b5f1115054ddf3cac61c27606f500cad5d7e", "size": 1115718 },
+  "previewImage": "/theme-previews/kun-stage.png",
+  "previewStyle": { "backgroundColor": "#101211", "backgroundImage": "linear-gradient(#101211, #050606)", "panelColor": "#101211", "panelBorder": "#4b4436", "textColor": "#ead8b5", "mutedTextColor": "#9b927f", "accentColor": "#d5b47c", "accentSoft": "#352f25", "codeColor": "#d5b47c", "shadow": "0 28px 80px rgba(0,0,0,.55)", "pattern": "embers" }
+}

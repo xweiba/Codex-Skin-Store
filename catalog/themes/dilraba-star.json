@@ -1,0 +1,20 @@
+{
+  "slug": "dilraba-star",
+  "name": "Dilraba Star",
+  "summary": "星光蓝紫与甜酷舞台氛围，包含真实背景、Logo、首页引导与四张快捷操作卡。",
+  "author": { "name": "Codex Skin", "handle": "codex-skin", "curated": true },
+  "category": "gradient",
+  "platforms": ["macos", "windows"],
+  "colors": ["violet", "blue"],
+  "tags": ["真实主题", "星光", "人物", "甜酷", "双平台"],
+  "stats": { "downloads": 0, "rating": 0, "reviews": 0 },
+  "featured": true,
+  "isNew": true,
+  "version": "1.0.0",
+  "engineRange": ">=1.0.0 <2.0.0",
+  "publishedAt": "2026-07-17T06:00:00.000Z",
+  "license": { "name": "Codex-Skin Theme Assets", "spdx": "LicenseRef-Codex-Skin-Theme", "source": "project-curated-assets" },
+  "package": { "published": true, "id": "dilraba-star", "version": "1.0.0", "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/official-themes-v1/Codex-Skin-theme-dilraba-star-1.0.0.dreamskin", "sha256": "45eed254d3ecbc13e2c13cb0efbde3678594ec290683d6db641893aca61ffe17", "size": 1015797 },
+  "previewImage": "/theme-previews/dilraba-star.png",
+  "previewStyle": { "backgroundColor": "#f4f1ff", "backgroundImage": "linear-gradient(#f4f1ff, #ece6ff)", "panelColor": "#f4f1ff", "panelBorder": "#c7b8ef", "textColor": "#151b72", "mutedTextColor": "#7476a1", "accentColor": "#7b49ff", "accentSoft": "#e6dcff", "codeColor": "#b459ff", "shadow": "0 28px 80px rgba(21,27,114,.22)", "pattern": "stars" }
+}

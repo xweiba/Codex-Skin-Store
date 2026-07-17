@@ -8,7 +8,7 @@
   "required": [
     "slug", "name", "summary", "author", "category", "platforms", "colors",
     "tags", "stats", "featured", "isNew", "version", "engineRange",
-    "publishedAt", "license", "package", "previewStyle"
+    "publishedAt", "license", "package", "previewImage", "previewStyle"
   ],
   "properties": {
     "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$", "maxLength": 80 },
@@ -52,9 +52,9 @@
       "type": "object", "additionalProperties": false,
       "required": ["name", "spdx", "source"],
       "properties": {
-        "name": { "const": "CC0 1.0 Universal" },
-        "spdx": { "const": "CC0-1.0" },
-        "source": { "const": "original-procedural-artwork" }
+        "name": { "const": "Codex-Skin Theme Assets" },
+        "spdx": { "const": "LicenseRef-Codex-Skin-Theme" },
+        "source": { "const": "project-curated-assets" }
       }
     },
     "package": {
@@ -74,6 +74,7 @@
         }
       ]
     },
+    "previewImage": { "type": "string", "pattern": "^/theme-previews/[a-z0-9-]+\\.png$" },
     "previewStyle": {
       "type": "object", "additionalProperties": false,
       "required": ["backgroundColor", "backgroundImage", "panelColor", "panelBorder", "textColor", "mutedTextColor", "accentColor", "accentSoft", "codeColor", "shadow", "pattern"],

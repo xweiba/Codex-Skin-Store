@@ -39,7 +39,7 @@ function enumArray(value, allowed, source, max = Number.POSITIVE_INFINITY) {
 }
 
 export function validateTheme(theme, source = "theme") {
-  exactKeys(theme, ["slug", "name", "summary", "author", "category", "platforms", "colors", "tags", "stats", "featured", "isNew", "version", "engineRange", "publishedAt", "license", "package", "previewStyle"], source);
+  exactKeys(theme, ["slug", "name", "summary", "author", "category", "platforms", "colors", "tags", "stats", "featured", "isNew", "version", "engineRange", "publishedAt", "license", "package", "previewImage", "previewStyle"], source);
   if (typeof theme.slug !== "string" || !SLUG.test(theme.slug) || theme.slug.length > 80) fail(source, "invalid slug");
   text(theme.name, `${source}.name`);
   text(theme.summary, `${source}.summary`, 180);
@@ -64,7 +64,9 @@ export function validateTheme(theme, source = "theme") {
   if (!Number.isInteger(theme.stats.reviews) || theme.stats.reviews < 0) fail(source, "reviews must be a non-negative integer");
 
   exactKeys(theme.license, ["name", "spdx", "source"], `${source}.license`);
-  if (theme.license.name !== "CC0 1.0 Universal" || theme.license.spdx !== "CC0-1.0" || theme.license.source !== "original-procedural-artwork") fail(source, "unsupported license declaration");
+  if (theme.license.name !== "Codex-Skin Theme Assets" || theme.license.spdx !== "LicenseRef-Codex-Skin-Theme" || theme.license.source !== "project-curated-assets") fail(source, "unsupported license declaration");
+
+  if (typeof theme.previewImage !== "string" || !/^\/theme-previews\/[a-z0-9-]+\.png$/.test(theme.previewImage)) fail(source, "invalid previewImage path");
 
   exactKeys(theme.previewStyle, ["backgroundColor", "backgroundImage", "panelColor", "panelBorder", "textColor", "mutedTextColor", "accentColor", "accentSoft", "codeColor", "shadow", "pattern"], `${source}.previewStyle`);
   for (const [key, value] of Object.entries(theme.previewStyle)) {

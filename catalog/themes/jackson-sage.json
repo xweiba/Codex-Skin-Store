@@ -1,0 +1,20 @@
+{
+  "slug": "jackson-sage",
+  "name": "Jackson Sage",
+  "summary": "鼠尾草绿与安静留白氛围，完整呈现真实首页背景、品牌元素和引导文案。",
+  "author": { "name": "Codex Skin", "handle": "codex-skin", "curated": true },
+  "category": "nature",
+  "platforms": ["macos", "windows"],
+  "colors": ["green", "neutral"],
+  "tags": ["真实主题", "人物", "鼠尾草", "留白", "双平台"],
+  "stats": { "downloads": 0, "rating": 0, "reviews": 0 },
+  "featured": true,
+  "isNew": true,
+  "version": "1.0.0",
+  "engineRange": ">=1.0.0 <2.0.0",
+  "publishedAt": "2026-07-17T06:00:00.000Z",
+  "license": { "name": "Codex-Skin Theme Assets", "spdx": "LicenseRef-Codex-Skin-Theme", "source": "project-curated-assets" },
+  "package": { "published": true, "id": "jackson-sage", "version": "1.0.0", "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/official-themes-v1/Codex-Skin-theme-jackson-sage-1.0.0.dreamskin", "sha256": "d737eb406bcb8612c6ff4814a2e9644287617dcc23d78fa99b2f698cb02c4abd", "size": 1233340 },
+  "previewImage": "/theme-previews/jackson-sage.png",
+  "previewStyle": { "backgroundColor": "#f6f4ea", "backgroundImage": "linear-gradient(#f6f4ea, #e8eddd)", "panelColor": "#f6f4ea", "panelBorder": "#bdc8aa", "textColor": "#3d4a31", "mutedTextColor": "#777d70", "accentColor": "#879966", "accentSoft": "#e3e9d8", "codeColor": "#b99b68", "shadow": "0 28px 80px rgba(61,74,49,.2)", "pattern": "mist" }
+}

@@ -3,11 +3,11 @@ import type { Theme } from "@/lib/themes";
 
 export const GENERATED_THEMES = [
   {
-    "slug": "aurora-drift",
-    "name": "极光漫游",
-    "summary": "蓝紫极光缓缓掠过深夜，为长时间创作保留恰到好处的层次。现已提供可验证的签名互操作样例包。",
+    "slug": "dilraba-star",
+    "name": "Dilraba Star",
+    "summary": "星光蓝紫与甜酷舞台氛围，包含真实背景、Logo、首页引导与四张快捷操作卡。",
     "author": {
-      "name": "Codex-Skin contributors",
+      "name": "Codex Skin",
       "handle": "codex-skin",
       "curated": true
     },
@@ -18,556 +18,240 @@ export const GENERATED_THEMES = [
     ],
     "colors": [
       "violet",
-      "blue",
-      "black"
-    ],
-    "tags": [
-      "签名样例",
-      "Ed25519",
-      "极光",
-      "冷色",
-      "夜间",
-      "渐变"
-    ],
-    "stats": {
-      "downloads": 0,
-      "rating": 5,
-      "reviews": 0
-    },
-    "featured": true,
-    "isNew": false,
-    "version": "1.3.0",
-    "engineRange": ">=1.1.0 <2.0.0",
-    "publishedAt": "2026-04-18T08:00:00.000Z",
-    "license": {
-      "name": "CC0 1.0 Universal",
-      "spdx": "CC0-1.0",
-      "source": "original-procedural-artwork"
-    },
-    "previewStyle": {
-      "backgroundColor": "#080b18",
-      "backgroundImage": "radial-gradient(circle at 72% 18%, rgba(110, 231, 255, .5), transparent 32%), radial-gradient(circle at 30% 8%, rgba(167, 139, 250, .58), transparent 38%), linear-gradient(145deg, #17112f 0%, #081426 48%, #071015 100%)",
-      "panelColor": "rgba(11, 17, 33, .78)",
-      "panelBorder": "rgba(172, 205, 255, .16)",
-      "textColor": "#f4f7ff",
-      "mutedTextColor": "#9aa9c6",
-      "accentColor": "#8be8ff",
-      "accentSoft": "rgba(139, 232, 255, .16)",
-      "codeColor": "#c4b5fd",
-      "shadow": "0 28px 80px rgba(3, 7, 20, .48)",
-      "pattern": "aurora"
-    },
-    "package": {
-      "published": true,
-      "id": "codex-skin.catalog.aurora-drift",
-      "version": "1.3.0",
-      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/catalog-v1/aurora-drift-1.3.0.dreamskin",
-      "sha256": "b94573c48a6ad9c1ba22f366e37dabf3f88090f719b5fd35febacbaa6b92de6a",
-      "size": 669547
-    }
-  },
-  {
-    "slug": "ember-terminal",
-    "name": "余烬终端",
-    "summary": "炭黑背景中留下一点琥珀余温，为终端爱好者打造的低干扰主题。现已提供可验证的签名互操作样例包。",
-    "author": {
-      "name": "Codex-Skin contributors",
-      "handle": "codex-skin",
-      "curated": true
-    },
-    "category": "dark",
-    "platforms": [
-      "macos",
-      "windows"
-    ],
-    "colors": [
-      "black",
-      "orange"
-    ],
-    "tags": [
-      "签名样例",
-      "Ed25519",
-      "终端",
-      "炭黑",
-      "琥珀",
-      "夜间"
-    ],
-    "stats": {
-      "downloads": 0,
-      "rating": 5,
-      "reviews": 0
-    },
-    "featured": false,
-    "isNew": true,
-    "version": "1.0.0",
-    "engineRange": ">=1.2.0 <2.0.0",
-    "publishedAt": "2026-07-12T08:00:00.000Z",
-    "license": {
-      "name": "CC0 1.0 Universal",
-      "spdx": "CC0-1.0",
-      "source": "original-procedural-artwork"
-    },
-    "previewStyle": {
-      "backgroundColor": "#0f0d0c",
-      "backgroundImage": "radial-gradient(circle at 77% 8%, rgba(239, 133, 55, .23), transparent 30%), linear-gradient(145deg, #171311, #0b0a09 64%)",
-      "panelColor": "rgba(20, 17, 15, .92)",
-      "panelBorder": "rgba(231, 159, 87, .17)",
-      "textColor": "#f4eee7",
-      "mutedTextColor": "#a69a8f",
-      "accentColor": "#e9a35b",
-      "accentSoft": "rgba(233, 163, 91, .13)",
-      "codeColor": "#f1bd76",
-      "shadow": "0 28px 74px rgba(0, 0, 0, .48)",
-      "pattern": "embers"
-    },
-    "package": {
-      "published": true,
-      "id": "codex-skin.catalog.ember-terminal",
-      "version": "1.0.0",
-      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/catalog-v1/ember-terminal-1.0.0.dreamskin",
-      "sha256": "6c89be2ed8924601c773ba6dc59acd8b5a5ab9f220fb9831dfcc2244f93e4606",
-      "size": 244919
-    }
-  },
-  {
-    "slug": "jackson-sage-signed-sample",
-    "name": "千玺星球签名示例",
-    "summary": "首个可真实下载的双平台签名样例，用同一份信任契约验证 Windows 与 macOS 导入流程。",
-    "author": {
-      "name": "Codex-Skin contributors",
-      "handle": "codex-skin",
-      "curated": true
-    },
-    "category": "nature",
-    "platforms": [
-      "macos",
-      "windows"
-    ],
-    "colors": [
-      "green",
-      "neutral",
-      "orange"
-    ],
-    "tags": [
-      "签名示例",
-      "双平台",
-      "Ed25519",
-      "开源"
-    ],
-    "stats": {
-      "downloads": 0,
-      "rating": 5,
-      "reviews": 0
-    },
-    "featured": true,
-    "isNew": true,
-    "version": "1.0.0",
-    "engineRange": ">=1.0.0 <2.0.0",
-    "publishedAt": "2026-07-16T12:00:00.000Z",
-    "license": {
-      "name": "CC0 1.0 Universal",
-      "spdx": "CC0-1.0",
-      "source": "original-procedural-artwork"
-    },
-    "package": {
-      "published": true,
-      "id": "codex-skin.jackson-sage-sample",
-      "version": "1.0.0",
-      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/sample-v1/codex-skin-sample-1.0.0.dreamskin",
-      "sha256": "7a75fff8086fe6949ef9e37e82c161a8e015a1e00e02181938cd479e9ae41387",
-      "size": 2041227
-    },
-    "previewStyle": {
-      "backgroundColor": "#cbd7ca",
-      "backgroundImage": "radial-gradient(circle at 80% 12%, rgba(215, 180, 106, .5), transparent 24%), linear-gradient(145deg, #dfe8dc, #78937b 55%, #516b54)",
-      "panelColor": "rgba(244, 245, 239, .86)",
-      "panelBorder": "rgba(81, 107, 84, .22)",
-      "textColor": "#1d2a20",
-      "mutedTextColor": "#647066",
-      "accentColor": "#516b54",
-      "accentSoft": "rgba(81, 107, 84, .14)",
-      "codeColor": "#9d694f",
-      "shadow": "0 28px 72px rgba(29, 42, 32, .24)",
-      "pattern": "mist"
-    }
-  },
-  {
-    "slug": "linen-light",
-    "name": "亚麻晨光",
-    "summary": "温柔米白与细腻纸纤维质感，让界面像一本摊开的轻盈笔记。现已提供可验证的签名互操作样例包。",
-    "author": {
-      "name": "Codex-Skin contributors",
-      "handle": "codex-skin",
-      "curated": true
-    },
-    "category": "minimal",
-    "platforms": [
-      "macos"
-    ],
-    "colors": [
-      "neutral",
-      "orange"
-    ],
-    "tags": [
-      "签名样例",
-      "Ed25519",
-      "浅色",
-      "米白",
-      "极简",
-      "纸张"
-    ],
-    "stats": {
-      "downloads": 0,
-      "rating": 5,
-      "reviews": 0
-    },
-    "featured": false,
-    "isNew": false,
-    "version": "1.0.6",
-    "engineRange": ">=1.1.0 <2.0.0",
-    "publishedAt": "2026-02-11T08:00:00.000Z",
-    "license": {
-      "name": "CC0 1.0 Universal",
-      "spdx": "CC0-1.0",
-      "source": "original-procedural-artwork"
-    },
-    "previewStyle": {
-      "backgroundColor": "#eee8dc",
-      "backgroundImage": "radial-gradient(circle at 18% 0%, rgba(255, 255, 255, .88), transparent 38%), repeating-linear-gradient(96deg, rgba(107, 91, 65, .025) 0 1px, transparent 1px 6px)",
-      "panelColor": "rgba(255, 253, 248, .84)",
-      "panelBorder": "rgba(95, 76, 51, .13)",
-      "textColor": "#332e27",
-      "mutedTextColor": "#817666",
-      "accentColor": "#a55e2f",
-      "accentSoft": "rgba(165, 94, 47, .11)",
-      "codeColor": "#7c4a2e",
-      "shadow": "0 24px 60px rgba(79, 63, 38, .16)",
-      "pattern": "paper"
-    },
-    "package": {
-      "published": true,
-      "id": "codex-skin.catalog.linen-light",
-      "version": "1.0.6",
-      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/catalog-v1/linen-light-1.0.6.dreamskin",
-      "sha256": "3892605f88957153e0bd775565f19757a11a05144c4798ed00c0ebe6525a415c",
-      "size": 300941
-    }
-  },
-  {
-    "slug": "midnight-grid",
-    "name": "午夜网格",
-    "summary": "精密网格与克制的电光蓝，适合偏爱结构感的深色工作台。现已提供可验证的签名互操作样例包。",
-    "author": {
-      "name": "Codex-Skin contributors",
-      "handle": "codex-skin",
-      "curated": true
-    },
-    "category": "dark",
-    "platforms": [
-      "macos",
-      "windows"
-    ],
-    "colors": [
-      "black",
       "blue"
     ],
     "tags": [
-      "签名样例",
-      "Ed25519",
-      "网格",
-      "深色",
-      "蓝黑",
-      "技术感"
+      "真实主题",
+      "星光",
+      "人物",
+      "甜酷",
+      "双平台"
     ],
     "stats": {
       "downloads": 0,
-      "rating": 5,
+      "rating": 0,
       "reviews": 0
     },
     "featured": true,
-    "isNew": false,
-    "version": "1.1.2",
-    "engineRange": ">=1.0.0 <2.0.0",
-    "publishedAt": "2026-03-02T08:00:00.000Z",
-    "license": {
-      "name": "CC0 1.0 Universal",
-      "spdx": "CC0-1.0",
-      "source": "original-procedural-artwork"
-    },
-    "previewStyle": {
-      "backgroundColor": "#080a0f",
-      "backgroundImage": "linear-gradient(rgba(72, 113, 170, .1) 1px, transparent 1px), linear-gradient(90deg, rgba(72, 113, 170, .1) 1px, transparent 1px), radial-gradient(circle at 78% 12%, rgba(50, 126, 255, .2), transparent 35%)",
-      "panelColor": "rgba(13, 17, 24, .92)",
-      "panelBorder": "rgba(100, 142, 204, .2)",
-      "textColor": "#eef4ff",
-      "mutedTextColor": "#8491a5",
-      "accentColor": "#65a5ff",
-      "accentSoft": "rgba(101, 165, 255, .14)",
-      "codeColor": "#8cc8ff",
-      "shadow": "0 26px 70px rgba(0, 0, 0, .5)",
-      "pattern": "grid"
-    },
-    "package": {
-      "published": true,
-      "id": "codex-skin.catalog.midnight-grid",
-      "version": "1.1.2",
-      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/catalog-v1/midnight-grid-1.1.2.dreamskin",
-      "sha256": "70c723637eb8a37e2734cc2769ddade7e5b68608dba5aed664fe39bcd61eed7b",
-      "size": 375547
-    }
-  },
-  {
-    "slug": "moss-and-mist",
-    "name": "苔色山雾",
-    "summary": "层叠苔绿与清晨薄雾，营造沉静、有呼吸感的专注空间。现已提供可验证的签名互操作样例包。",
-    "author": {
-      "name": "Codex-Skin contributors",
-      "handle": "codex-skin",
-      "curated": true
-    },
-    "category": "nature",
-    "platforms": [
-      "macos",
-      "windows"
-    ],
-    "colors": [
-      "green",
-      "neutral",
-      "black"
-    ],
-    "tags": [
-      "签名样例",
-      "Ed25519",
-      "森林",
-      "雾",
-      "绿色",
-      "沉静"
-    ],
-    "stats": {
-      "downloads": 0,
-      "rating": 5,
-      "reviews": 0
-    },
-    "featured": false,
     "isNew": true,
-    "version": "1.0.1",
-    "engineRange": ">=1.2.0 <2.0.0",
-    "publishedAt": "2026-07-03T08:00:00.000Z",
+    "version": "1.0.0",
+    "engineRange": ">=1.0.0 <2.0.0",
+    "publishedAt": "2026-07-17T06:00:00.000Z",
     "license": {
-      "name": "CC0 1.0 Universal",
-      "spdx": "CC0-1.0",
-      "source": "original-procedural-artwork"
-    },
-    "previewStyle": {
-      "backgroundColor": "#17221d",
-      "backgroundImage": "radial-gradient(ellipse at 28% 20%, rgba(207, 222, 202, .34), transparent 35%), linear-gradient(155deg, rgba(75, 101, 76, .9), rgba(25, 40, 32, .94) 48%, #101714 100%)",
-      "panelColor": "rgba(20, 31, 25, .76)",
-      "panelBorder": "rgba(183, 210, 182, .15)",
-      "textColor": "#eef4eb",
-      "mutedTextColor": "#9dad9e",
-      "accentColor": "#a9cf9b",
-      "accentSoft": "rgba(169, 207, 155, .14)",
-      "codeColor": "#c3dda7",
-      "shadow": "0 28px 72px rgba(7, 14, 10, .42)",
-      "pattern": "mist"
+      "name": "Codex-Skin Theme Assets",
+      "spdx": "LicenseRef-Codex-Skin-Theme",
+      "source": "project-curated-assets"
     },
     "package": {
       "published": true,
-      "id": "codex-skin.catalog.moss-and-mist",
-      "version": "1.0.1",
-      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/catalog-v1/moss-and-mist-1.0.1.dreamskin",
-      "sha256": "4a05a3f569bf8bf01f70c9a522a744ff867da25c83f958cfca1bafadc4dd98ac",
-      "size": 403652
+      "id": "dilraba-star",
+      "version": "1.0.0",
+      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/official-themes-v1/Codex-Skin-theme-dilraba-star-1.0.0.dreamskin",
+      "sha256": "45eed254d3ecbc13e2c13cb0efbde3678594ec290683d6db641893aca61ffe17",
+      "size": 1015797
+    },
+    "previewImage": "/theme-previews/dilraba-star.png",
+    "previewStyle": {
+      "backgroundColor": "#f4f1ff",
+      "backgroundImage": "linear-gradient(#f4f1ff, #ece6ff)",
+      "panelColor": "#f4f1ff",
+      "panelBorder": "#c7b8ef",
+      "textColor": "#151b72",
+      "mutedTextColor": "#7476a1",
+      "accentColor": "#7b49ff",
+      "accentSoft": "#e6dcff",
+      "codeColor": "#b459ff",
+      "shadow": "0 28px 80px rgba(21,27,114,.22)",
+      "pattern": "stars"
     }
   },
   {
-    "slug": "ocean-glass",
-    "name": "海面玻璃",
-    "summary": "清透海岸色调叠加磨砂玻璃面板，明亮但不刺眼。现已提供可验证的签名互操作样例包。",
+    "slug": "enfp-pop",
+    "name": "ENFP Pop",
+    "summary": "高饱和青橙与自由脑暴氛围，面向快速原型、灵感探索和轻快创作。",
     "author": {
-      "name": "Codex-Skin contributors",
+      "name": "Codex Skin",
       "handle": "codex-skin",
       "curated": true
     },
-    "category": "nature",
+    "category": "editorial",
     "platforms": [
       "macos",
       "windows"
     ],
     "colors": [
       "teal",
-      "blue",
-      "neutral"
+      "orange"
     ],
     "tags": [
-      "签名样例",
-      "Ed25519",
-      "海洋",
-      "玻璃",
-      "青蓝",
-      "明亮"
+      "真实主题",
+      "ENFP",
+      "脑暴",
+      "高饱和",
+      "双平台"
     ],
     "stats": {
       "downloads": 0,
-      "rating": 5,
-      "reviews": 0
-    },
-    "featured": true,
-    "isNew": false,
-    "version": "1.2.1",
-    "engineRange": ">=1.1.0 <2.0.0",
-    "publishedAt": "2026-05-06T08:00:00.000Z",
-    "license": {
-      "name": "CC0 1.0 Universal",
-      "spdx": "CC0-1.0",
-      "source": "original-procedural-artwork"
-    },
-    "previewStyle": {
-      "backgroundColor": "#9ed7dc",
-      "backgroundImage": "linear-gradient(175deg, rgba(235, 249, 246, .9) 0 30%, rgba(91, 187, 197, .58) 31% 55%, rgba(21, 92, 121, .82) 80% 100%), radial-gradient(circle at 75% 28%, rgba(255, 255, 255, .7), transparent 18%)",
-      "panelColor": "rgba(237, 251, 250, .68)",
-      "panelBorder": "rgba(255, 255, 255, .46)",
-      "textColor": "#163b45",
-      "mutedTextColor": "#47727a",
-      "accentColor": "#087f8c",
-      "accentSoft": "rgba(8, 127, 140, .12)",
-      "codeColor": "#075f72",
-      "shadow": "0 28px 70px rgba(19, 80, 94, .22)",
-      "pattern": "horizon"
-    },
-    "package": {
-      "published": true,
-      "id": "codex-skin.catalog.ocean-glass",
-      "version": "1.2.1",
-      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/catalog-v1/ocean-glass-1.2.1.dreamskin",
-      "sha256": "22a6caca45a2688678f555e14b556d816d4445551cb96638f0b5becc355355f4",
-      "size": 301852
-    }
-  },
-  {
-    "slug": "paper-observatory",
-    "name": "纸上天文台",
-    "summary": "深蓝墨色与细小星图铺在暖灰纸面上，像一本安静的观测手册。现已提供可验证的签名互操作样例包。",
-    "author": {
-      "name": "Codex-Skin contributors",
-      "handle": "codex-skin",
-      "curated": true
-    },
-    "category": "editorial",
-    "platforms": [
-      "macos"
-    ],
-    "colors": [
-      "neutral",
-      "blue",
-      "black"
-    ],
-    "tags": [
-      "签名样例",
-      "Ed25519",
-      "星图",
-      "纸张",
-      "编辑风",
-      "复古"
-    ],
-    "stats": {
-      "downloads": 0,
-      "rating": 5,
-      "reviews": 0
-    },
-    "featured": true,
-    "isNew": true,
-    "version": "1.0.2",
-    "engineRange": ">=1.2.0 <2.0.0",
-    "publishedAt": "2026-07-08T08:00:00.000Z",
-    "license": {
-      "name": "CC0 1.0 Universal",
-      "spdx": "CC0-1.0",
-      "source": "original-procedural-artwork"
-    },
-    "previewStyle": {
-      "backgroundColor": "#c9c2b3",
-      "backgroundImage": "radial-gradient(circle at 13% 19%, rgba(30, 46, 69, .55) 0 1px, transparent 2px), radial-gradient(circle at 72% 28%, rgba(30, 46, 69, .42) 0 1px, transparent 2px), repeating-linear-gradient(0deg, rgba(56, 48, 38, .025) 0 1px, transparent 1px 5px)",
-      "panelColor": "rgba(240, 236, 226, .86)",
-      "panelBorder": "rgba(37, 49, 67, .18)",
-      "textColor": "#202c3d",
-      "mutedTextColor": "#697080",
-      "accentColor": "#284d7a",
-      "accentSoft": "rgba(40, 77, 122, .12)",
-      "codeColor": "#513f64",
-      "shadow": "0 24px 64px rgba(49, 45, 39, .2)",
-      "pattern": "stars"
-    },
-    "package": {
-      "published": true,
-      "id": "codex-skin.catalog.paper-observatory",
-      "version": "1.0.2",
-      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/catalog-v1/paper-observatory-1.0.2.dreamskin",
-      "sha256": "08daa71c0eb209e85f75ef832beb4dd9d8f2f6f2b404bb3dcfbe1e8c382b38e2",
-      "size": 219581
-    }
-  },
-  {
-    "slug": "solar-bloom",
-    "name": "日光绽放",
-    "summary": "珊瑚橙与玫瑰粉相遇，给工作区注入温暖又现代的能量。现已提供可验证的签名互操作样例包。",
-    "author": {
-      "name": "Codex-Skin contributors",
-      "handle": "codex-skin",
-      "curated": true
-    },
-    "category": "gradient",
-    "platforms": [
-      "windows"
-    ],
-    "colors": [
-      "orange",
-      "rose",
-      "violet"
-    ],
-    "tags": [
-      "签名样例",
-      "Ed25519",
-      "暖色",
-      "日落",
-      "活力",
-      "渐变"
-    ],
-    "stats": {
-      "downloads": 0,
-      "rating": 5,
+      "rating": 0,
       "reviews": 0
     },
     "featured": false,
     "isNew": true,
     "version": "1.0.0",
-    "engineRange": ">=1.2.0 <2.0.0",
-    "publishedAt": "2026-06-27T08:00:00.000Z",
+    "engineRange": ">=1.0.0 <2.0.0",
+    "publishedAt": "2026-07-17T06:00:00.000Z",
     "license": {
-      "name": "CC0 1.0 Universal",
-      "spdx": "CC0-1.0",
-      "source": "original-procedural-artwork"
-    },
-    "previewStyle": {
-      "backgroundColor": "#7f284d",
-      "backgroundImage": "radial-gradient(circle at 70% 22%, rgba(255, 222, 130, .88), transparent 24%), radial-gradient(circle at 30% 72%, rgba(238, 103, 139, .72), transparent 40%), linear-gradient(145deg, #4d2b82, #bc3f6b 48%, #ee8c52)",
-      "panelColor": "rgba(72, 27, 64, .7)",
-      "panelBorder": "rgba(255, 229, 207, .23)",
-      "textColor": "#fff8f4",
-      "mutedTextColor": "#f2c6c3",
-      "accentColor": "#ffd68d",
-      "accentSoft": "rgba(255, 214, 141, .17)",
-      "codeColor": "#ffc6a5",
-      "shadow": "0 28px 80px rgba(65, 17, 50, .38)",
-      "pattern": "orb"
+      "name": "Codex-Skin Theme Assets",
+      "spdx": "LicenseRef-Codex-Skin-Theme",
+      "source": "project-curated-assets"
     },
     "package": {
       "published": true,
-      "id": "codex-skin.catalog.solar-bloom",
+      "id": "enfp-pop",
       "version": "1.0.0",
-      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/catalog-v1/solar-bloom-1.0.0.dreamskin",
-      "sha256": "3a9a61d8c8fe939be8850a0d0e069c1e4503ed6decbabffe99989150b326b2ec",
-      "size": 309290
+      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/official-themes-v1/Codex-Skin-theme-enfp-pop-1.0.0.dreamskin",
+      "sha256": "b9f9b08b2707a83c4b404c4dc98d82334baa0b01e5c3c44fda3554d7438da336",
+      "size": 956764
+    },
+    "previewImage": "/theme-previews/enfp-pop.png",
+    "previewStyle": {
+      "backgroundColor": "#fffaf0",
+      "backgroundImage": "linear-gradient(#fffaf0, #fff0dc)",
+      "panelColor": "#fffaf0",
+      "panelBorder": "#efcfae",
+      "textColor": "#202335",
+      "mutedTextColor": "#77726d",
+      "accentColor": "#12bfa5",
+      "accentSoft": "#d7f5ef",
+      "codeColor": "#ffb31a",
+      "shadow": "0 28px 80px rgba(255,106,87,.2)",
+      "pattern": "paper"
+    }
+  },
+  {
+    "slug": "jackson-sage",
+    "name": "Jackson Sage",
+    "summary": "鼠尾草绿与安静留白氛围，完整呈现真实首页背景、品牌元素和引导文案。",
+    "author": {
+      "name": "Codex Skin",
+      "handle": "codex-skin",
+      "curated": true
+    },
+    "category": "nature",
+    "platforms": [
+      "macos",
+      "windows"
+    ],
+    "colors": [
+      "green",
+      "neutral"
+    ],
+    "tags": [
+      "真实主题",
+      "人物",
+      "鼠尾草",
+      "留白",
+      "双平台"
+    ],
+    "stats": {
+      "downloads": 0,
+      "rating": 0,
+      "reviews": 0
+    },
+    "featured": true,
+    "isNew": true,
+    "version": "1.0.0",
+    "engineRange": ">=1.0.0 <2.0.0",
+    "publishedAt": "2026-07-17T06:00:00.000Z",
+    "license": {
+      "name": "Codex-Skin Theme Assets",
+      "spdx": "LicenseRef-Codex-Skin-Theme",
+      "source": "project-curated-assets"
+    },
+    "package": {
+      "published": true,
+      "id": "jackson-sage",
+      "version": "1.0.0",
+      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/official-themes-v1/Codex-Skin-theme-jackson-sage-1.0.0.dreamskin",
+      "sha256": "d737eb406bcb8612c6ff4814a2e9644287617dcc23d78fa99b2f698cb02c4abd",
+      "size": 1233340
+    },
+    "previewImage": "/theme-previews/jackson-sage.png",
+    "previewStyle": {
+      "backgroundColor": "#f6f4ea",
+      "backgroundImage": "linear-gradient(#f6f4ea, #e8eddd)",
+      "panelColor": "#f6f4ea",
+      "panelBorder": "#bdc8aa",
+      "textColor": "#3d4a31",
+      "mutedTextColor": "#777d70",
+      "accentColor": "#879966",
+      "accentSoft": "#e3e9d8",
+      "codeColor": "#b99b68",
+      "shadow": "0 28px 80px rgba(61,74,49,.2)",
+      "pattern": "mist"
+    }
+  },
+  {
+    "slug": "kun-stage",
+    "name": "KUN Stage",
+    "summary": "黑金舞台与聚光灯氛围，使用真实主题背景、Logo 和完整首页引导内容。",
+    "author": {
+      "name": "Codex Skin",
+      "handle": "codex-skin",
+      "curated": true
+    },
+    "category": "dark",
+    "platforms": [
+      "macos",
+      "windows"
+    ],
+    "colors": [
+      "black",
+      "orange"
+    ],
+    "tags": [
+      "真实主题",
+      "人物",
+      "黑金",
+      "舞台",
+      "双平台"
+    ],
+    "stats": {
+      "downloads": 0,
+      "rating": 0,
+      "reviews": 0
+    },
+    "featured": false,
+    "isNew": true,
+    "version": "1.0.0",
+    "engineRange": ">=1.0.0 <2.0.0",
+    "publishedAt": "2026-07-17T06:00:00.000Z",
+    "license": {
+      "name": "Codex-Skin Theme Assets",
+      "spdx": "LicenseRef-Codex-Skin-Theme",
+      "source": "project-curated-assets"
+    },
+    "package": {
+      "published": true,
+      "id": "kun-stage",
+      "version": "1.0.0",
+      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/official-themes-v1/Codex-Skin-theme-kun-stage-1.0.0.dreamskin",
+      "sha256": "5b6be40451f7b9d69daca1c36d85b5f1115054ddf3cac61c27606f500cad5d7e",
+      "size": 1115718
+    },
+    "previewImage": "/theme-previews/kun-stage.png",
+    "previewStyle": {
+      "backgroundColor": "#101211",
+      "backgroundImage": "linear-gradient(#101211, #050606)",
+      "panelColor": "#101211",
+      "panelBorder": "#4b4436",
+      "textColor": "#ead8b5",
+      "mutedTextColor": "#9b927f",
+      "accentColor": "#d5b47c",
+      "accentSoft": "#352f25",
+      "codeColor": "#d5b47c",
+      "shadow": "0 28px 80px rgba(0,0,0,.55)",
+      "pattern": "embers"
     }
   }
 ] as const satisfies readonly Theme[];
