@@ -1,0 +1,12 @@
+{
+  "$schema": "./schemas/theme-repository-v1.schema.json",
+  "schemaVersion": 1,
+  "name": "Codex-Skin-Store Desktop Catalog",
+  "updatedAt": "2026-07-17T03:40:25Z",
+  "themes": [
+    { "id": "dilraba-star", "manifest": "themes/dilraba-star.json" },
+    { "id": "enfp-pop", "manifest": "themes/enfp-pop.json" },
+    { "id": "jackson-sage", "manifest": "themes/jackson-sage.json" },
+    { "id": "kun-stage", "manifest": "themes/kun-stage.json" }
+  ]
+}

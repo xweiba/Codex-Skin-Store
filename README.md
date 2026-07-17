@@ -1,198 +1,142 @@
 # Codex-Skin-Store
 
-**Codex-Skin-Store** 是面向 Codex-Skin 客户端的开源主题目录与分发页面。它负责主题浏览、静态目录、版本元数据和一键导入入口；主题的下载校验、签名验证、安装、应用与恢复由用户本机客户端完成。
+[简体中文](README.md) | [English](README.en.md)
+
+Codex-Skin-Store 是 Codex-Skin 的公开主题商店。你可以在网页中浏览、筛选和下载主题，也可以通过 `dreamskin://` 一键交给本机 Codex-Skin 客户端验证和安装。
 
 - 在线商店：<https://lixiaobaivv.github.io/Codex-Skin-Store/>
-- 客户端项目：[Codex-Skin](https://github.com/lixiaobaivv/Codex-Skin)
-- 主题投稿：[主题投稿指南](docs/theme-submission.md)
-- 协议说明：[导入协议](spec/import-protocol.md)
-- 安全设计：[架构文档](docs/architecture.md)
+- 客户端下载：<https://github.com/lixiaobaivv/Codex-Skin/releases/latest>
+- 客户端使用说明：<https://github.com/lixiaobaivv/Codex-Skin#readme>
 
-> [!IMPORTANT]
-> Codex-Skin-Store 是社区开源项目，不是 OpenAI 或 Codex 官方产品，也不是 Codex 官方插件。项目不会收集 Codex 凭证、API Key、项目内容或本机 CDP 数据。
+> Codex-Skin-Store 是社区开源项目，不是 OpenAI 或 Codex 官方产品。网页不会读取 Codex 凭证、API Key、项目、任务或聊天内容，也不会连接本机 CDP。
 
-## 当前能力
+## 开始使用
 
-当前版本已经具备：
+1. 安装适合系统的 Codex-Skin 客户端。
+2. Windows 推荐使用 `Codex-Skin-Setup-win-x64.exe`；macOS 使用对应芯片的 `Codex-Skin-osx-*.pkg`。
+3. 至少启动一次 Codex-Skin。
+4. 打开 [在线主题商店](https://lixiaobaivv.github.io/Codex-Skin-Store/)。
+5. 选择主题后点击“一键导入”。
+6. 在客户端中确认来源、版本和大小。
+7. 验证安装完成后，再决定是否立即重启 Codex 并应用。
 
-- 基于 GitHub Pages 的公开静态主题商店；
-- 主题搜索、分类、平台、颜色和排序筛选；
-- 主题详情、兼容平台、版本、许可和安全信息展示；
-- 已签名 `.dreamskin` 包的手动下载与 `dreamskin://install` 一键导入；
-- 一个经过真实发布元数据验证的双平台签名示例；
-- 一个主题一个 JSON 文件的版本化静态目录；
-- 封闭的目录 Schema、重复项检查和确定性代码生成；
-- GitHub Issue/PR 投稿模板与 Actions 自动预检；
-- 维护者审核、合并后自动更新 GitHub Pages 的发布流程。
+网页只能发起导入请求，不能绕过客户端确认，也不能把“已点击”当成“已安装”。
 
-目录目前包含 9 个可真实下载和验证的签名主题。其中首个端到端样例位于 `sample-v1` Release，另外 8 个程序化主题位于 `catalog-v1` Release；它们都具备真实包文件、精确字节数、SHA-256 和 Ed25519 签名，可以通过一键导入或手动下载进入客户端验证流程。
+## 一键导入支持
 
-## 为什么不需要服务器
+### Windows
 
-Codex-Skin-Store 当前完全依赖 GitHub 提供的开源协作和静态托管能力：
+Setup 安装版会自动注册 `dreamskin://` 和 `.dreamskin` 文件关联。便携版需要手动执行：
 
-```text
-创作者 GitHub 身份
-        │
-        ▼
-Pull Request ──> GitHub Actions 自动预检 ──> 维护者审核
-                                                    │
-                                                    ▼
-GitHub Release <── 包地址与摘要 ── 静态主题目录 ──> GitHub Pages
-       │                                             │
-       └────────── HTTPS / dreamskin:// ─────────────┘
-                              │
-                              ▼
-                    用户本机 Codex-Skin 客户端
-                  下载 → 校验 → 确认安装 → 确认应用
+```powershell
+.\Codex-Skin-win-x64.exe protocol register
 ```
 
-因此当前不需要承担以下成本：
+### macOS
 
-- 应用服务器；
-- 自有账号系统；
-- 数据库；
-- 对象存储；
-- 在线上传后台；
-- 常驻审核服务。
+新版 PKG 会声明 `dreamskin://` 和 `.dreamskin` 文件类型。安装后先打开一次 `Codex-Skin.app`，让 macOS LaunchServices 完成关联。
 
-只有当未来投稿量和社区功能确实需要在线写入时，才会重新评估账号、上传、审核队列和对象存储。
+macOS PKG 当前未签名、未公证。系统阻止打开时，请先校验下载文件，再到“系统设置 → 隐私与安全性”确认打开。
 
-## 使用主题
+## GitHub 镜像加速
 
-1. 打开 [Codex-Skin-Store](https://lixiaobaivv.github.io/Codex-Skin-Store/)；
-2. 选择带有“可导入”状态的已发布主题；
-3. 点击“一键导入”，或下载 `.dreamskin` 文件后使用客户端打开；
-4. 在客户端确认来源、主题 ID、版本和文件大小；
-5. 客户端完成大小、SHA-256、Ed25519 签名、清单和资源校验；
-6. 确认安装；安装成功后，再单独确认是否立即应用。
+客户端或主题包下载缓慢时，可以把原始 GitHub 地址放到镜像前缀后。
 
-网页只能把导入请求交给客户端，不能把“已点击”当成“已安装成功”。客户端始终是本机安全边界和最终裁决者。
-
-## 客户端兼容状态
-
-| 平台 | 当前状态 |
-| --- | --- |
-| Windows | 已实现 `.dreamskin` 文件导入、`dreamskin://install`、安全下载、大小与 SHA-256 限制、Ed25519 验证、文件关联、原子安装，以及安装和应用的独立确认。 |
-| macOS | 兼容实现代码已经准备，包含本地包、URL handler、下载限制、签名验证和独立确认；尚未在真实 macOS GitHub runner 或设备完成验收。 |
-
-在真实 macOS 验证完成前，本项目不会把 macOS 描述为已经完成实机验收。
-
-## 一键导入协议
-
-商店为拥有完整发布元数据的主题生成以下链接：
+例如客户端原始地址：
 
 ```text
-dreamskin://install?url=<percent-encoded-https-url>&sha256=<64-lowercase-hex>&size=<decimal>&id=<theme-id>&version=<semver>
+https://github.com/lixiaobaivv/Codex-Skin/releases/latest/download/Codex-Skin-Setup-win-x64.exe
 ```
 
-| 参数 | 要求 |
-| --- | --- |
-| `url` | 公开、不可变的 GitHub Release HTTPS `.dreamskin` 地址 |
-| `sha256` | 整个包文件的 64 位小写十六进制 SHA-256 |
-| `size` | 精确字节数，范围为 1–20971520 |
-| `id` | 主题包 ID；客户端仍会与包内清单交叉验证 |
-| `version` | SemVer 版本；客户端仍会与包内清单交叉验证 |
+GHFast：
 
-目录不会为 HTTP 地址、可变下载地址、占位哈希或不完整包信息生成导入链接。完整约束见 [`spec/import-protocol.md`](spec/import-protocol.md)。
+```text
+https://ghfast.top/https://github.com/lixiaobaivv/Codex-Skin/releases/latest/download/Codex-Skin-Setup-win-x64.exe
+```
+
+GH Proxy：
+
+```text
+https://gh-proxy.com/https://github.com/lixiaobaivv/Codex-Skin/releases/latest/download/Codex-Skin-Setup-win-x64.exe
+```
+
+手动下载 `.dreamskin` 主题包时也可以使用相同方法，但网页“一键导入”始终使用目录中经过审核的原始 HTTPS 地址，客户端不会信任网页临时替换的下载信息。
+
+镜像是第三方服务，可能不可用或返回旧缓存。下载客户端后请对照 Release 中的 `Codex-Skin-win-x64-SHA256SUMS.txt` 或 `Codex-Skin-installers-SHA256SUMS.txt`；主题包则由客户端同时校验精确大小、SHA-256 和 Ed25519 签名。
+
+## 客户端如何保护导入
+
+每次网页导入都会经过：
+
+1. 严格解析 `dreamskin://install` 参数；
+2. 拒绝 HTTP、私网、本机地址、异常端口和危险重定向；
+3. 限制 URI、下载包、ZIP 条目和解压后文件大小；
+4. 校验整包 SHA-256；
+5. 校验 Ed25519 发布者签名；
+6. 校验封闭 JSON Schema、主题 ID、版本和支持平台；
+7. 完整解码并检查图片格式、尺寸、动画和尾随数据；
+8. 原子安装，失败时不覆盖已有主题；
+9. 安装和应用分别确认。
+
+主题包不允许携带 JavaScript、HTML、CSS、SVG、Shell、PowerShell、可执行程序、符号链接或额外文件。
+
+## 商店里的两类主题目录
+
+本仓库维护两套独立目录：
+
+- 网页目录位于 `catalog/themes/`，提供签名 `.dreamskin` 包的版本、大小、SHA-256、平台和展示信息；
+- 桌面目录由根目录 `theme-repository.json`、`themes/`、`previews/`、`backgrounds/`、`logos/` 和 Schema 组成，供 Codex-Skin 客户端浏览和快速切换。
+
+客户端桌面目录固定从本仓库 `main` 分支同步，只能选择 GitHub、GH Proxy 或 GHFast 网络源，不能切换到未经审核的仓库。两套目录都会先经过仓库 CI，再由客户端本机重新校验。
+
+## 主题可以修改什么
+
+主题可以修改 Codex 的背景、固定侧栏视觉、顶部区域、首页引导、四张快捷提示卡、消息气泡、输入框和可选宠物图片。
+
+主题不能修改用户项目、任务、进度、对话内容、账号数据或 Codex 业务逻辑。
+
+## 常见问题
+
+### 点击“一键导入”没有反应
+
+- 确认已经安装并至少打开过一次 Codex-Skin；
+- Windows 便携版先执行 `protocol register`；
+- Windows Setup 可以重新运行安装器修复关联；
+- macOS 确认安装的是支持 URL handler 的新版 PKG；
+- 也可以选择“手动下载”，然后双击 `.dreamskin` 文件。
+
+### 客户端提示哈希或签名错误
+
+不要继续安装。重新从商店下载；如果仍失败，请在主题详情和客户端仓库提交 Issue，附上主题名称、版本和错误代码。
+
+### GitHub 或镜像下载失败
+
+直连、GHFast 和 GH Proxy 可能在不同网络下表现不同。切换线路后重试，但不要跳过 SHA-256 校验。
+
+### 导入成功但没有自动换主题
+
+这是正常安全设计。安装完成后客户端会单独询问是否重启 Codex 并应用；你也可以稍后从客户端选择主题。
 
 ## 投稿主题
 
-主题发布采用 GitHub 原生流程：
+主题作者请阅读 [主题投稿指南](docs/theme-submission.md)。投稿使用 GitHub Pull Request：
 
-1. 制作符合 [`spec/theme-package.schema.json`](spec/theme-package.schema.json) 的纯声明式主题包；
-2. 使用 Ed25519 签名，并在公开 GitHub Release 上传 `.dreamskin`；
-3. Fork 本仓库，在 `catalog/themes/` 新增与 `slug` 同名的 JSON 文件；
-4. 运行目录生成和验证命令；
-5. 提交 Pull Request，并说明平台验证、素材来源和再分发许可；
-6. Actions 自动预检通过后，由维护者进行人工审核；
-7. PR 合并后，GitHub Pages 自动发布新版目录。
+1. 制作声明式主题和受限图片；
+2. 创建并签名 `.dreamskin` 包；
+3. 上传到不可变的 GitHub Release；
+4. 在 `catalog/themes/` 提交目录条目；
+5. 等待自动校验和维护者审核。
 
-主题必须是声明式清单和受限图片资源，不接受 JavaScript、HTML、CSS、SVG、Shell、PowerShell、可执行文件、符号链接或其他可执行载荷。详细步骤见 [`docs/theme-submission.md`](docs/theme-submission.md)。
+素材来源、再分发许可、支持平台和包摘要必须真实填写。商店代码的 MIT 许可证不会自动覆盖主题作品。
 
-## 本地开发
+## 隐私与安全
 
-要求 Node.js `>=22.13.0`。
+- 商店是静态 GitHub Pages，不需要在线账号；
+- 不使用自建应用服务器、数据库或对象存储；
+- 网页不探测本机客户端状态，不读取 Codex 数据；
+- 客户端是最终信任边界；
+- 有问题的主题可以下架，但已下载文件仍应依靠客户端签名与撤回策略处理。
 
-```bash
-git clone https://github.com/lixiaobaivv/Codex-Skin-Store.git
-cd Codex-Skin-Store
-npm ci
-npm run dev
-```
+协议和安全细节见 [架构文档](docs/architecture.md)、[导入协议](spec/import-protocol.md)、[主题包 Schema](spec/theme-package.schema.json) 和 [桌面目录规范](spec/desktop-theme-repository.md)。
 
-常用命令：
-
-| 命令 | 用途 |
-| --- | --- |
-| `npm run dev` | 启动本地开发服务器 |
-| `npm run catalog:generate` | 从 `catalog/themes/*.json` 生成类型安全的静态目录 |
-| `npm run catalog:check` | 校验目录结构、唯一性、安全边界和生成物一致性 |
-| `npm run lint` | 运行代码检查 |
-| `npm test` | 构建并运行测试 |
-| `npm run build:pages` | 生成 GitHub Pages 静态文件 |
-
-提交代码前建议运行：
-
-```bash
-npm run catalog:check
-npm run lint
-npm test
-BUILD_GITHUB_PAGES=true npm run build:pages
-```
-
-PowerShell 中可使用：
-
-```powershell
-$env:BUILD_GITHUB_PAGES = "true"
-npm run build:pages
-```
-
-## 项目结构
-
-```text
-.github/             投稿模板、PR 模板和 GitHub Actions
-app/                 Next.js 页面、布局和全局样式
-catalog/themes/      受审核的静态主题目录，一个主题一个 JSON
-components/          商店界面组件
-docs/                架构和主题投稿文档
-lib/                 主题类型、筛选逻辑和生成后的目录
-public/              可公开访问的静态资源
-spec/                目录、主题包和导入协议规范
-tests/               页面渲染与安全契约测试
-tools/               目录校验和确定性生成脚本
-worker/              本地 vinext 构建入口
-```
-
-`main` 分支通过 [`.github/workflows/pages.yml`](.github/workflows/pages.yml) 自动构建并发布到 GitHub Pages。发布过程也会执行主题目录校验，目录不一致时不会部署。
-
-## 安全原则
-
-- 主题内容按不可信输入处理；
-- 商店只发布通过 Schema、唯一性和元数据检查的目录条目；
-- 客户端先限制下载大小，再校验整个包的 SHA-256；
-- SHA-256 负责传输完整性，Ed25519 签名负责发布来源，两者不能互相替代；
-- 解包必须拒绝路径穿越、符号链接、压缩炸弹、额外文件和伪造媒体类型；
-- 安装和立即应用是两个独立的用户确认动作；
-- 未知的 Schema 或包版本必须安全失败；
-- 商店不连接本机 CDP，不直接写入主题目录，也不读取任何 Codex 凭证或用户内容。
-
-## 路线图
-
-- [x] 静态主题商店与 GitHub Pages 部署；
-- [x] 签名示例主题包；
-- [x] Windows 一键导入链路；
-- [x] GitHub 原生主题投稿、自动预检和维护者审核；
-- [ ] macOS 真实 runner/设备验收；
-- [ ] 发布者密钥轮换和版本撤回清单；
-- [ ] 更多经过审核的真实主题；
-- [ ] 在确有需求后评估账号、上传、审核后台和对象存储；
-- [ ] 收藏、评分、举报和创作者工具。
-
-## 参与贡献
-
-代码改进请阅读 [`CONTRIBUTING.md`](CONTRIBUTING.md)。主题作者请从 [`docs/theme-submission.md`](docs/theme-submission.md) 开始。涉及导入协议、安全边界或兼容性的改动，建议先创建 Issue 说明使用场景和迁移方案。
-
-## 许可证
-
-Codex-Skin-Store 的代码采用 [MIT License](LICENSE)。主题作品及其第三方素材仍受各自许可证约束，投稿者必须单独声明来源和再分发权限。
+商店页面或主题目录问题请提交 [Issue](https://github.com/lixiaobaivv/Codex-Skin-Store/issues)。开发者需要的本地构建、测试和贡献流程位于 [CONTRIBUTING.md](CONTRIBUTING.md)，普通用户不需要安装 Node.js 或克隆仓库。

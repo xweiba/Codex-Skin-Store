@@ -4,6 +4,13 @@ on:
   pull_request:
     paths:
       - "catalog/**"
+      - "theme-repository.json"
+      - "themes/**"
+      - "previews/**"
+      - "backgrounds/**"
+      - "logos/**"
+      - "pets/**"
+      - "schemas/**"
       - "spec/**"
       - "tools/**"
       - "lib/**"
