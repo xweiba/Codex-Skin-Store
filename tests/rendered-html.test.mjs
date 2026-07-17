@@ -36,7 +36,7 @@ test("server-renders the Codex-Skin-Store storefront", async () => {
   assert.match(html, /发现主题/);
   assert.match(html, /一键导入/);
   assert.doesNotMatch(html, /暂无可验证包/);
-  for (const theme of ["Dilraba Star", "Jackson Sage", "KUN Stage", "ENFP Pop"]) {
+  for (const theme of ["Dilraba Star", "Jackson Sage", "KUN Stage", "ENFP Pop", "Zhu Xudan Racing"]) {
     assert.match(html, new RegExp(theme));
   }
   assert.match(html, /theme-previews\/dilraba-star\.png/);

@@ -81,8 +81,8 @@ test("storefront exactly matches the desktop theme repository", async () => {
   assert.equal(themes.length, 5);
   assert.deepEqual(themes.map(theme => theme.slug).sort(), desktopIds);
   const publishedThemes = themes.filter((theme) => theme.package?.published);
-  assert.equal(publishedThemes.length, 5);
-  assert.equal(new Set(publishedThemes.map((theme) => `${theme.package.id}@${theme.package.version}`)).size, 5);
+  assert.equal(publishedThemes.length, themes.length);
+  assert.equal(new Set(publishedThemes.map((theme) => `${theme.package.id}@${theme.package.version}`)).size, themes.length);
   assert.doesNotThrow(() => validateCatalog(themes));
   for (const theme of themes) {
     if (theme.package) {
