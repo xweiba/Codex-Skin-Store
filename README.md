@@ -87,9 +87,9 @@ https://gh-proxy.com/https://github.com/lixiaobaivv/Codex-Skin/releases/latest/d
 本仓库维护两套独立目录：
 
 - 网页目录位于 `catalog/themes/`，提供签名 `.dreamskin` 包的版本、大小、SHA-256、平台和展示信息；
-- 桌面目录由根目录 `theme-repository.json`、`themes/`、`previews/`、`backgrounds/`、`logos/` 和 Schema 组成，供 Codex-Skin 客户端浏览和快速切换。
+- 桌面主题源由根目录 `theme-repository.json`、`themes/`、`previews/`、`backgrounds/`、`logos/` 和 Schema 组成；CI 从它们生成内容寻址的 `desktop-catalog-v2.json` 轻量分发索引。
 
-客户端桌面目录固定从本仓库 `main` 分支同步，只能选择 GitHub、GH Proxy 或 GHFast 网络源，不能切换到未经审核的仓库。两套目录都会先经过仓库 CI，再由客户端本机重新校验。
+客户端固定从本仓库 `main` 分支条件同步轻量索引，只能选择 GitHub、GH Proxy 或 GHFast 网络源，不能切换到未经审核的仓库。预览进入可视区域时才下载，完整资源在应用前按需下载；索引声明的大小和 SHA-256 会在客户端本机重新校验。
 
 ## 主题可以修改什么
 

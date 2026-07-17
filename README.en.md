@@ -45,7 +45,7 @@ https://gh-proxy.com/https://github.com/lixiaobaivv/Codex-Skin/releases/latest/d
 
 Mirrors are third-party services and may be unavailable or return stale content. Verify installer downloads against `Codex-Skin-installers-SHA256SUMS.txt` from the same Release. For one-click theme imports, the client shows progress and safely retries the selected transport, direct GitHub, and built-in mirrors; exact size, SHA-256, and Ed25519 checks still apply to every result.
 
-Desktop catalog sync uses the same fallback policy. It starts with the last transport that actually succeeded or the user's selection, tries direct GitHub and the remaining built-in mirrors when needed, then saves the successfully validated transport for the next launch.
+Desktop catalog sync uses the generated, content-addressed `desktop-catalog-v2.json` feed. The client conditionally requests this lightweight index, lazily downloads visible previews, and fetches complete theme assets only before application. It starts with the last successful transport or the user's selection, then falls back across direct GitHub and the remaining built-in mirrors.
 
 ## What Themes Can Change
 

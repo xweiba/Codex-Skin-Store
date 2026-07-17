@@ -37,7 +37,7 @@ Codex-Skin-Store 采用 GitHub 原生投稿：GitHub 身份、Pull Request、Act
 2. 在 `theme-repository.json` 的 `themes` 数组登记 `themes/<主题ID>.json`，同时更新 UTC `updatedAt`；
 3. 复制一个 `catalog/themes/*.json` 为 `catalog/themes/<主题ID>.json`，让 `slug` 与主题 ID 相同并先设置 `package: null`；
 4. 将与客户端预览相同的 PNG 复制到 `public/theme-previews/<主题ID>.png`，并设置网页条目的 `previewImage`；
-5. 运行 `npm run catalog:generate`，提交同步生成的 `lib/generated-themes.ts`；
+5. 运行 `npm run catalog:generate`，提交同步生成的 `lib/generated-themes.ts` 和 `desktop-catalog-v2.json`；
 6. 运行下列完整检查；
 7. 创建 Pull Request，并完整填写投稿清单、真实截图、测试平台和素材许可。
 
