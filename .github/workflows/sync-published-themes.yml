@@ -56,11 +56,6 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
         if: steps.sync.outputs.found == 'true'
 
-      - uses: swatinem/rust-cache@v2
-        if: steps.sync.outputs.found == 'true'
-        with:
-          workspaces: .publisher-client/src-tauri
-
       - name: Check out the trusted package verifier
         if: steps.sync.outputs.found == 'true'
         uses: actions/checkout@v7
@@ -69,6 +64,11 @@ jobs:
           ref: main
           path: .publisher-client
           persist-credentials: false
+
+      - uses: swatinem/rust-cache@v2
+        if: steps.sync.outputs.found == 'true'
+        with:
+          workspaces: .publisher-client/src-tauri
 
       - name: Verify every downloaded package on both platforms
         if: steps.sync.outputs.found == 'true'
