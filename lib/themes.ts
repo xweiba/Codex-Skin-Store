@@ -143,7 +143,9 @@ export const SORT_OPTIONS = [
   { value: "rating", label: "评分最高" },
 ] as const satisfies readonly FilterOption<ThemeSort>[];
 
-export const THEMES: readonly Theme[] = GENERATED_THEMES;
+export const THEMES: readonly Theme[] = GENERATED_THEMES.filter(
+  (theme) => theme.package?.published === true,
+);
 
 function normalizeSearchValue(value: string): string {
   return value.trim().toLocaleLowerCase("zh-CN");

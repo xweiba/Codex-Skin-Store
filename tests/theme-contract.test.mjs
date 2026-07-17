@@ -70,6 +70,10 @@ test("catalog validation rejects placeholders, unknown fields, and duplicates", 
     () => validateCatalog([sample, structuredClone(sample)]),
     /duplicate slug/,
   );
+  assert.throws(
+    () => validateTheme({ ...sample, slug: "single", package: null }, "bad-theme"),
+    /package-compatible slug/,
+  );
 });
 
 test("storefront exactly matches the desktop theme repository", async () => {
@@ -81,8 +85,11 @@ test("storefront exactly matches the desktop theme repository", async () => {
   assert.equal(themes.length, 5);
   assert.deepEqual(themes.map(theme => theme.slug).sort(), desktopIds);
   const publishedThemes = themes.filter((theme) => theme.package?.published);
-  assert.equal(publishedThemes.length, themes.length);
-  assert.equal(new Set(publishedThemes.map((theme) => `${theme.package.id}@${theme.package.version}`)).size, themes.length);
+  assert.ok(publishedThemes.length > 0);
+  assert.equal(
+    new Set(publishedThemes.map((theme) => `${theme.package.id}@${theme.package.version}`)).size,
+    publishedThemes.length,
+  );
   assert.doesNotThrow(() => validateCatalog(themes));
   for (const theme of themes) {
     if (theme.package) {
@@ -119,4 +126,10 @@ test("GitHub Pages build is static and uses the repository base path", async () 
   assert.match(workflow, /catalog:check/);
   assert.match(catalogWorkflow, /npm run catalog:check/);
   assert.match(catalogWorkflow, /npm run build:pages/);
+});
+
+test("preview-only drafts stay out of the public storefront", async () => {
+  const themes = await readFile(new URL("../lib/themes.ts", import.meta.url), "utf8");
+  assert.match(themes, /GENERATED_THEMES\.filter/);
+  assert.match(themes, /theme\.package\?\.published === true/);
 });

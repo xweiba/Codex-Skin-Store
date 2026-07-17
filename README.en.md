@@ -79,6 +79,6 @@ Anyone can submit a theme through a GitHub Pull Request; the official signing ke
 5. Run `npm ci`, `npm run catalog:generate`, `npm run catalog:check`, `npm run lint`, and `npm test`.
 6. Open a PR with asset sources, redistribution licenses, and tested platforms.
 
-After CI and maintainer review pass, maintainers create the officially signed `.dreamskin`, publish it to an immutable GitHub Release, and complete both catalogs. The approved theme then becomes searchable and previewable in both the website and Windows/macOS clients, with one-click import and manual download. Drafts are not published.
+After CI and maintainer review pass, the PR can be merged without manually entering a package URL, size, or digest. A maintainer runs **Publish reviewed Codex-Skin themes** as the publication approval. It discovers reviewed `package: null` entries, signs the exact Store commit, and verifies each package on Windows and macOS before creating an immutable Release. The Store then downloads and verifies the package again, fills in the catalog metadata, and deploys Pages automatically. Unsigned drafts are not shown on the public storefront.
 
 Storefront and catalog issues belong in [Codex-Skin-Store Issues](https://github.com/lixiaobaivv/Codex-Skin-Store/issues). Build and contribution details remain in [CONTRIBUTING.md](CONTRIBUTING.md); normal users do not need Node.js or a source checkout.

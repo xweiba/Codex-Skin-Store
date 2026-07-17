@@ -40,7 +40,7 @@ function enumArray(value, allowed, source, max = Number.POSITIVE_INFINITY) {
 
 export function validateTheme(theme, source = "theme") {
   exactKeys(theme, ["slug", "name", "summary", "author", "category", "platforms", "colors", "tags", "stats", "featured", "isNew", "version", "engineRange", "publishedAt", "license", "package", "previewImage", "previewStyle"], source);
-  if (typeof theme.slug !== "string" || !SLUG.test(theme.slug) || theme.slug.length > 80) fail(source, "invalid slug");
+  if (typeof theme.slug !== "string" || !SLUG.test(theme.slug) || !PACKAGE_ID.test(theme.slug) || theme.slug.length > 80) fail(source, "invalid package-compatible slug");
   text(theme.name, `${source}.name`);
   text(theme.summary, `${source}.summary`, 180);
   if (!CATEGORIES.has(theme.category)) fail(source, "invalid category");

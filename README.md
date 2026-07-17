@@ -129,7 +129,7 @@ https://gh-proxy.com/https://github.com/lixiaobaivv/Codex-Skin/releases/latest/d
 5. 运行 `npm ci`、`npm run catalog:generate`、`npm run catalog:check`、`npm run lint` 和 `npm test`；
 6. 提交 PR，并说明素材来源、再分发许可以及已测试的平台。
 
-PR 通过自动校验和人工审核后，维护者会生成并签名 `.dreamskin`，发布到不可变 GitHub Release，再补全包的 URL、大小和 SHA-256。发布完成后，同一主题会同时出现在网页商店和 Windows/macOS 客户端中，可被检索、预览、一键导入或下载。审核前的草案不会进入正式目录。
+PR 通过自动校验和人工审核后即可合并，投稿者和维护者都不需要手工填写下载地址、大小或哈希。维护者运行一次 **Publish reviewed Codex-Skin themes** 作为发布批准，工作流会发现 `package: null` 的已审核主题，从该 Store 提交构建和签名 `.dreamskin`，在 Windows、macOS 双平台验签后发布到不可变 GitHub Release。商店同步任务会重新下载包、计算 SHA-256、再次验签、自动回填目录并部署 Pages。尚未完成签名的草稿不会显示在公开网页中。
 
 主题 ID 发布后不能改名，更新时只提升 SemVer 版本。素材来源、再分发许可和真实预览必须准确；商店代码的 MIT 许可证不会自动覆盖主题作品。
 

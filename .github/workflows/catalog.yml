@@ -19,6 +19,7 @@ on:
       - "package.json"
       - "package-lock.json"
       - ".github/workflows/catalog.yml"
+      - ".github/workflows/sync-published-themes.yml"
   workflow_dispatch:
 
 permissions:

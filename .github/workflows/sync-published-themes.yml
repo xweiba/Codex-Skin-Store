@@ -1,0 +1,136 @@
+name: Sync verified theme releases
+
+on:
+  schedule:
+    - cron: "27,57 * * * *"
+  workflow_dispatch:
+    inputs:
+      theme_id:
+        description: Optional pending theme ID; blank syncs every available release
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  sync-and-build:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.changes.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Download newly published theme packages
+        id: sync
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CODEX_SKIN_RELEASE_REPOSITORY: lixiaobaivv/Codex-Skin
+          CODEX_SKIN_PACKAGE_OUTPUT: ${{ runner.temp }}/published-themes
+          REQUESTED_THEME: ${{ github.event_name == 'workflow_dispatch' && inputs.theme_id || '' }}
+        run: |
+          published="$(node tools/sync-published-themes.mjs "$REQUESTED_THEME")"
+          echo "published=$published" >> "$GITHUB_OUTPUT"
+          if [ "$published" = "[]" ]; then
+            echo "found=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "found=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - run: npm ci
+        if: steps.sync.outputs.found == 'true'
+
+      - uses: actions/setup-dotnet@v6
+        if: steps.sync.outputs.found == 'true'
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Check out the trusted package verifier
+        if: steps.sync.outputs.found == 'true'
+        uses: actions/checkout@v7
+        with:
+          repository: lixiaobaivv/Codex-Skin
+          ref: main
+          path: .publisher-client
+          persist-credentials: false
+
+      - name: Verify every downloaded package on both platforms
+        if: steps.sync.outputs.found == 'true'
+        run: |
+          shopt -s nullglob
+          packages=("$RUNNER_TEMP"/published-themes/*.dreamskin)
+          for package in "${packages[@]}"; do
+            name="$(basename "$package" .dreamskin)"
+            dotnet run --project .publisher-client/src/CodexThemeStore.Cli --configuration Release -- theme-import "$package" macos "$RUNNER_TEMP/verified-macos-$name"
+            dotnet run --project .publisher-client/src/CodexThemeStore.Cli --configuration Release -- theme-import "$package" windows "$RUNNER_TEMP/verified-windows-$name"
+          done
+
+      - name: Generate and validate the published storefront
+        if: steps.sync.outputs.found == 'true'
+        run: |
+          npm run catalog:generate
+          npm run catalog:check
+          npm run lint
+          npm test
+          git diff --check
+
+      - name: Detect catalog changes
+        id: changes
+        run: |
+          if git diff --quiet -- catalog/themes lib/generated-themes.ts; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit verified release metadata
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add catalog/themes lib/generated-themes.ts
+          git commit -m "chore: publish verified theme packages"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - uses: actions/configure-pages@v6
+        if: steps.changes.outputs.changed == 'true'
+        with:
+          enablement: true
+
+      - name: Build static storefront
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          BUILD_GITHUB_PAGES: "true"
+          NEXT_PUBLIC_SITE_URL: https://lixiaobaivv.github.io/Codex-Skin-Store/
+        run: npm run build:pages
+
+      - uses: actions/upload-pages-artifact@v5
+        if: steps.changes.outputs.changed == 'true'
+        with:
+          path: out
+
+  deploy:
+    if: needs.sync-and-build.outputs.changed == 'true'
+    needs: sync-and-build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

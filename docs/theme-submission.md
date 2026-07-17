@@ -7,10 +7,10 @@ Codex-Skin-Store 采用 GitHub 原生投稿：GitHub 身份、Pull Request、Act
 1. 安装 Git、Node.js 22.13 或更高版本；
 2. 准备主题作品以及图片、字体等全部素材的作者、来源和可再分发许可；
 3. 准备一张来自真实 Codex 应用效果的 PNG 预览，不要使用与主题不一致的概念图；
-4. 确定稳定的主题 ID，只能使用小写字母、数字和连字符，发布后不能改名；
+4. 确定稳定的主题 ID，只能使用小写字母、数字和至少一个连字符，发布后不能改名；
 5. 确定 `1.0.0` 形式的 SemVer 版本以及 Windows、macOS 支持范围。
 
-投稿者不需要、也不应索取官方 Ed25519 私钥。审核通过后由维护者使用受保护的 GitHub Secret 构建和签名 `.dreamskin`。审核期间网页条目使用 `package: null`，不会显示一键导入或下载入口。
+投稿者不需要、也不应索取官方 Ed25519 私钥。审核期间网页条目使用 `package: null`；即使合并到 `main`，未签名草稿也不会出现在公开商店。审核通过后，维护者手动运行发布工作流作为批准，再使用 GitHub Secret 完成构建和签名。仓库管理员可额外为 `theme-publishing` Environment 配置 Required reviewers。
 
 ## 制作桌面主题
 
@@ -50,25 +50,14 @@ npm test
 npm run build:pages
 ```
 
-审核通过后，维护者构建官方包并把 `package: null` 替换为完整发布信息：
-
-```json
-{
-  "published": true,
-  "id": "author.theme-id",
-  "version": "1.0.0",
-  "url": "https://github.com/author/theme/releases/download/v1.0.0/theme-1.0.0.dreamskin",
-  "sha256": "<64 位小写十六进制摘要>",
-  "size": 1234567
-}
-```
-
-目录拒绝可变下载地址、HTTP、非 GitHub Release 包、占位哈希、重复 slug、重复包 ID/版本、未知字段和超出 20 MiB 的包。CI 不会执行主题中的任何内容，也不会把主题代理到商店服务器。投稿者不要自行填写虚假的 URL、大小或摘要。
+投稿者始终保留 `package: null`，不要自行填写 URL、大小或摘要。发布工作流会按 `theme-<主题ID>-v<版本>` 创建独立的不可变 Release；同步工作流只接受与主题 ID、版本和文件名完全匹配的包，并自动写入精确大小和 SHA-256。目录仍会拒绝 HTTP、非 GitHub Release 包、占位哈希、重复 slug、重复包 ID/版本、未知字段和超过 20 MiB 的包。
 
 ## 审核与发布
 
 Actions 通过只代表结构和构建预检成功，不代表作品获得发布资格。维护者仍会检查预览一致性、冒充、版权、素材许可、平台兼容性和运行时效果。
 
-审核通过后的发布顺序是：维护者同步已审核源文件，构建并用官方密钥签名 `.dreamskin`，在不可变 GitHub Release 发布包，写回精确大小和 SHA-256，最后更新网页与桌面两套目录。合并发布提交后，GitHub Pages 自动部署，Codex-Skin 客户端也会从 `main` 获取新目录。主题随后可在网页和 Windows/macOS 客户端中检索、预览、一键导入或下载。
+审核通过后的发布顺序是：合并主题 PR；维护者运行 Codex-Skin 发布工作流；工作流从 Store 的精确提交发现待发布主题，签名并完成 Windows、macOS 双平台导入验证；Store 同步任务重新下载、校验大小和 SHA-256、再次验签、提交生成目录并部署 GitHub Pages。日常发布只需要“合并 PR + 运行发布”，不再人工传递包元数据。
+
+签名工作流只接受维护者手动触发，避免未经批准自动使用私钥。Store 每半小时检查一次已发布包；需要立即上线时可手动运行本仓库的 **Sync verified theme releases**。两个工作流都可通过 `theme_id` 只处理一个主题。
 
 已经发布的内容如发现安全、版权或欺诈问题，可以撤下目录条目。未来若投稿量确实需要账号、上传队列和对象存储，再单独评估服务成本和治理方案。
