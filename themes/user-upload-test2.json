@@ -2,7 +2,7 @@
   "$schema": "../schemas/theme-v1.schema.json",
   "schemaVersion": 1,
   "version": "1.0.0",
-  "displayName": "我的第一个主题",
+  "displayName": "我的第一个主题2",
   "codeThemeId": "user-upload-test2",
   "category": "风景",
   "description": "一个清晰、舒适，适合日常使用的 Codex 主题。",
@@ -78,7 +78,7 @@
     ]
   },
   "copy": {
-    "title": "Codex 我的第一个主题",
+    "title": "Codex 我的第一个主题2",
     "replacePlaceholders": {
       "Ask Codex": "向 Codex 说明你想完成的工作",
       "Ask Codex anything": "向 Codex 说明你想完成的工作"

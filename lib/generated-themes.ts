@@ -316,7 +316,7 @@ export const GENERATED_THEMES = [
   },
   {
     "slug": "user-upload-test2",
-    "name": "我的第一个主题",
+    "name": "我的第一个主题2",
     "summary": "一个清晰、舒适，适合日常使用的 Codex 主题。",
     "author": {
       "name": "lixiaobai",
