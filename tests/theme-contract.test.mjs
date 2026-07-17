@@ -72,20 +72,23 @@ test("catalog validation rejects placeholders, unknown fields, and duplicates", 
   );
 });
 
-test("storefront exactly matches the four desktop themes", async () => {
+test("storefront exactly matches the desktop theme repository", async () => {
   const directory = new URL("../catalog/themes/", import.meta.url);
   const files = (await readdir(directory)).filter((name) => name.endsWith(".json")).sort();
   const themes = await Promise.all(files.map((name) => readFile(new URL(name, directory), "utf8").then(JSON.parse)));
   const desktopIndex = JSON.parse(await readFile(new URL("../theme-repository.json", import.meta.url), "utf8"));
   const desktopIds = desktopIndex.themes.map(entry => entry.id).sort();
-  assert.equal(themes.length, 4);
+  assert.equal(themes.length, 5);
   assert.deepEqual(themes.map(theme => theme.slug).sort(), desktopIds);
-  assert.equal(themes.filter((theme) => theme.package?.published).length, 4);
-  assert.equal(new Set(themes.map((theme) => `${theme.package.id}@${theme.package.version}`)).size, 4);
+  const publishedThemes = themes.filter((theme) => theme.package?.published);
+  assert.equal(publishedThemes.length, 4);
+  assert.equal(new Set(publishedThemes.map((theme) => `${theme.package.id}@${theme.package.version}`)).size, 4);
   assert.doesNotThrow(() => validateCatalog(themes));
   for (const theme of themes) {
-    assert.equal(theme.package.id, theme.slug);
-    assert.match(theme.package.url, /^https:\/\/github\.com\/lixiaobaivv\/Codex-Skin\/releases\/download\/official-themes-v1\/Codex-Skin-theme-/);
+    if (theme.package) {
+      assert.equal(theme.package.id, theme.slug);
+      assert.match(theme.package.url, /^https:\/\/github\.com\/lixiaobaivv\/Codex-Skin\/releases\/download\/official-themes-v1\/Codex-Skin-theme-/);
+    }
     await readFile(new URL(`../public${theme.previewImage}`, import.meta.url));
   }
 
