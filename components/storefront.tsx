@@ -62,6 +62,7 @@ function ThemePreview({
   theme: Theme;
   compact?: boolean;
 }) {
+  const previewImage = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${theme.previewImage}`;
   return (
     <div
       className={`theme-preview theme-preview--${theme.previewStyle.pattern}${compact ? " theme-preview--compact" : ""}`}
@@ -69,7 +70,7 @@ function ThemePreview({
       aria-label={`${theme.name} 主题界面预览`}
       role="img"
     >
-      <Image className="theme-preview-image" src={theme.previewImage} alt="" width={1586} height={992} unoptimized />
+      <Image className="theme-preview-image" src={previewImage} alt="" width={1586} height={992} unoptimized />
     </div>
   );
 }

@@ -38,6 +38,7 @@ test("storefront catalogs and enables the official themes", async () => {
   assert.match(generated, /"slug": "jackson-sage"/);
   assert.match(generated, /theme-previews\/jackson-sage\.png/);
   assert.match(storefront, /theme\.package\?\.published/);
+  assert.match(storefront, /NEXT_PUBLIC_BASE_PATH/);
   assert.match(links, /URLSearchParams/);
   assert.match(links, /dreamskin:\/\/install/);
 });
