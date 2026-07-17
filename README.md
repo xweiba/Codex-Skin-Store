@@ -121,15 +121,18 @@ https://gh-proxy.com/https://github.com/lixiaobaivv/Codex-Skin/releases/latest/d
 
 ## 投稿主题
 
-主题作者请阅读 [主题投稿指南](docs/theme-submission.md)。投稿使用 GitHub Pull Request：
+任何人都可以通过 GitHub Pull Request 投稿，不需要官方签名私钥。完整字段、目录和示例见 [主题制作与投稿指南](docs/theme-submission.md)。最短流程如下：
 
-1. 制作声明式主题和受限图片；
-2. 创建并签名 `.dreamskin` 包；
-3. 上传到不可变的 GitHub Release；
-4. 在 `catalog/themes/` 提交目录条目；
-5. 等待自动校验和维护者审核。
+1. Fork 本仓库，从 `themes/dilraba-star.json` 复制一份主题清单，修改主题 ID、颜色、文案、四张快捷卡和可选宠物；
+2. 把真实效果图和素材分别放入 `previews/`、`backgrounds/`、`logos/` 和可选的 `pets/`，不要提交 JavaScript、CSS、SVG 或可执行文件；
+3. 在 `theme-repository.json` 登记主题，并在 `catalog/themes/<主题ID>.json` 添加 `package: null` 的网页预览条目；
+4. 把同一张真实预览 PNG 放入 `public/theme-previews/<主题ID>.png`；
+5. 运行 `npm ci`、`npm run catalog:generate`、`npm run catalog:check`、`npm run lint` 和 `npm test`；
+6. 提交 PR，并说明素材来源、再分发许可以及已测试的平台。
 
-素材来源、再分发许可、支持平台和包摘要必须真实填写。商店代码的 MIT 许可证不会自动覆盖主题作品。
+PR 通过自动校验和人工审核后，维护者会生成并签名 `.dreamskin`，发布到不可变 GitHub Release，再补全包的 URL、大小和 SHA-256。发布完成后，同一主题会同时出现在网页商店和 Windows/macOS 客户端中，可被检索、预览、一键导入或下载。审核前的草案不会进入正式目录。
+
+主题 ID 发布后不能改名，更新时只提升 SemVer 版本。素材来源、再分发许可和真实预览必须准确；商店代码的 MIT 许可证不会自动覆盖主题作品。
 
 ## 隐私与安全
 

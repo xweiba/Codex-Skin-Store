@@ -68,4 +68,17 @@ Themes cannot replace user projects, tasks, progress, conversations, account dat
 - Theme packages cannot contain JavaScript, HTML, CSS, SVG, shell scripts, executables, symlinks, or undeclared files.
 - The desktop client is the final verification and consent boundary.
 
-Theme authors can use the [submission guide](docs/theme-submission.md). Storefront and catalog issues belong in [Codex-Skin-Store Issues](https://github.com/lixiaobaivv/Codex-Skin-Store/issues). Build and contribution details remain in [CONTRIBUTING.md](CONTRIBUTING.md); normal users do not need Node.js or a source checkout.
+## Create And Submit A Theme
+
+Anyone can submit a theme through a GitHub Pull Request; the official signing key is not required. See the [theme submission guide](docs/theme-submission.md) for every field and file location.
+
+1. Fork this repository and copy an existing manifest from `themes/`.
+2. Add the real preview, background, logo, and optional pet images to their matching directories.
+3. Register the manifest in `theme-repository.json` and add a storefront draft under `catalog/themes/` with `package: null`.
+4. Put the same real preview PNG in `public/theme-previews/`.
+5. Run `npm ci`, `npm run catalog:generate`, `npm run catalog:check`, `npm run lint`, and `npm test`.
+6. Open a PR with asset sources, redistribution licenses, and tested platforms.
+
+After CI and maintainer review pass, maintainers create the officially signed `.dreamskin`, publish it to an immutable GitHub Release, and complete both catalogs. The approved theme then becomes searchable and previewable in both the website and Windows/macOS clients, with one-click import and manual download. Drafts are not published.
+
+Storefront and catalog issues belong in [Codex-Skin-Store Issues](https://github.com/lixiaobaivv/Codex-Skin-Store/issues). Build and contribution details remain in [CONTRIBUTING.md](CONTRIBUTING.md); normal users do not need Node.js or a source checkout.
