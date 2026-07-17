@@ -81,13 +81,13 @@ test("storefront exactly matches the desktop theme repository", async () => {
   assert.equal(themes.length, 5);
   assert.deepEqual(themes.map(theme => theme.slug).sort(), desktopIds);
   const publishedThemes = themes.filter((theme) => theme.package?.published);
-  assert.equal(publishedThemes.length, 4);
-  assert.equal(new Set(publishedThemes.map((theme) => `${theme.package.id}@${theme.package.version}`)).size, 4);
+  assert.equal(publishedThemes.length, 5);
+  assert.equal(new Set(publishedThemes.map((theme) => `${theme.package.id}@${theme.package.version}`)).size, 5);
   assert.doesNotThrow(() => validateCatalog(themes));
   for (const theme of themes) {
     if (theme.package) {
       assert.equal(theme.package.id, theme.slug);
-      assert.match(theme.package.url, /^https:\/\/github\.com\/lixiaobaivv\/Codex-Skin\/releases\/download\/official-themes-v1\/Codex-Skin-theme-/);
+      assert.match(theme.package.url, /^https:\/\/github\.com\/lixiaobaivv\/Codex-Skin\/releases\/download\/official-themes-v[1-9][0-9]*\/Codex-Skin-theme-/);
     }
     await readFile(new URL(`../public${theme.previewImage}`, import.meta.url));
   }

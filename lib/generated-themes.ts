@@ -296,7 +296,14 @@ export const GENERATED_THEMES = [
       "spdx": "LicenseRef-Codex-Skin-Theme",
       "source": "project-curated-assets"
     },
-    "package": null,
+    "package": {
+      "published": true,
+      "id": "zhu-xudan-racing",
+      "version": "1.0.0",
+      "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/official-themes-v2/Codex-Skin-theme-zhu-xudan-racing-1.0.0.dreamskin",
+      "sha256": "9da9d441fe42723f536d2edc30fb87b35ec93cbbc8f4e13d148ec4898e245ac0",
+      "size": 3083241
+    },
     "previewImage": "/theme-previews/zhu-xudan-racing.png",
     "previewStyle": {
       "backgroundColor": "#17191e",

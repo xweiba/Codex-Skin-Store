@@ -14,7 +14,14 @@
   "engineRange": ">=1.0.0 <2.0.0",
   "publishedAt": "2026-07-17T08:11:01.000Z",
   "license": { "name": "Codex-Skin Theme Assets", "spdx": "LicenseRef-Codex-Skin-Theme", "source": "project-curated-assets" },
-  "package": null,
+  "package": {
+    "published": true,
+    "id": "zhu-xudan-racing",
+    "version": "1.0.0",
+    "url": "https://github.com/lixiaobaivv/Codex-Skin/releases/download/official-themes-v2/Codex-Skin-theme-zhu-xudan-racing-1.0.0.dreamskin",
+    "sha256": "9da9d441fe42723f536d2edc30fb87b35ec93cbbc8f4e13d148ec4898e245ac0",
+    "size": 3083241
+  },
   "previewImage": "/theme-previews/zhu-xudan-racing.png",
   "previewStyle": { "backgroundColor": "#17191e", "backgroundImage": "linear-gradient(135deg, #0d0f12, #2a1718)", "panelColor": "#17191e", "panelBorder": "#4a2a2b", "textColor": "#f7f4ef", "mutedTextColor": "#b9b3ad", "accentColor": "#e53935", "accentSoft": "#4a1f20", "codeColor": "#ffb020", "shadow": "0 28px 80px rgba(0,0,0,.42)", "pattern": "embers" }
 }
