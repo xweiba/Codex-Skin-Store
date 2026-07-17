@@ -31,6 +31,8 @@ The macOS PKG declares the same URL scheme and document type. Open `Codex-Skin.a
 
 The web page only starts a request. The client asks before downloading, verifies the exact size, SHA-256, Ed25519 signature, closed manifest, platform support, and image files, installs atomically, then asks separately before applying. A click can never silently install or activate a theme.
 
+If Codex-Skin is already running, one-click import activates that window and performs confirmation and progress there. A new window is created only when no client instance is running.
+
 ## Faster GitHub Downloads
 
 If GitHub Releases are slow, prepend a mirror to the original address:
@@ -42,6 +44,8 @@ https://gh-proxy.com/https://github.com/lixiaobaivv/Codex-Skin/releases/latest/d
 ```
 
 Mirrors are third-party services and may be unavailable or return stale content. Verify installer downloads against `Codex-Skin-installers-SHA256SUMS.txt` from the same Release. For one-click theme imports, the client shows progress and safely retries the selected transport, direct GitHub, and built-in mirrors; exact size, SHA-256, and Ed25519 checks still apply to every result.
+
+Desktop catalog sync uses the same fallback policy. It starts with the last transport that actually succeeded or the user's selection, tries direct GitHub and the remaining built-in mirrors when needed, then saves the successfully validated transport for the next launch.
 
 ## What Themes Can Change
 
